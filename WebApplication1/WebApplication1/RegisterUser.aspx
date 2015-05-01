@@ -24,6 +24,8 @@
             <hr>--%>
             <label id="icon" for="name"><i class="icon-user"></i></label>
             <asp:TextBox runat="server" id="newUsername" placeholder="Username" />
+            <asp:RequiredFieldValidator EnableClientScript="true" ValidationGroup="registerFields" ErrorMessage="Enter Username" runat="server"  ControlToValidate="newUsername">
+            </asp:RequiredFieldValidator>
             <label id="icon" for="name"><i class="icon-envelope"></i></label>
             <asp:TextBox runat="server" id="newEmail" placeholder="Email" />
             <label id="icon" for="name"><i class="icon-user"></i></label>
@@ -39,7 +41,7 @@
                 <label for="female" class="radio">Female</label>
             </div>--%>
             <p>By clicking Register, you agree on our <a href="#">terms and condition</a>.</p>
-            <asp:Button runat="server" OnClick="registerUser" ID="registerButton" CssClass="button" Text="Register" />
+            <asp:Button runat="server" ValidationGroup="registerFields" OnClick="registerUser" ID="registerButton" CssClass="button" Text="Register" />
             <%--<a id="RegisterButton" href="#" class="button">Register</a>--%>
         </form>
     </div>

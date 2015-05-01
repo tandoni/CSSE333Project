@@ -26,10 +26,10 @@ namespace WebApplication1
             try
             {
                 String commType = "addPerson";
-                String regUname = /*"'" +*/ newUsername.Text /*+ "'" */;
-                String regPass = /*"'" +*/ newPassword.Text /*+ "'" */;
-                String regName = /*"'" +*/ newName.Text /*+ "'" */;
-                String regEmail = /*"'" +*/ newEmail.Text /*+ "'" */;
+                String regUname = newUsername.Text ;
+                String regPass = newPassword.Text;
+                String regName = newName.Text;
+                String regEmail = newEmail.Text;
 
                 //String queryText = "exec addPerson " + regUname + " " +
                 //    regPass + " " + regName + " " + regEmail;
