@@ -1,58 +1,47 @@
 ﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="RegisterUser.aspx.cs" Inherits="WebApplication1.RegisterUser" %>
 
+
 <!DOCTYPE html>
 
-<html xmlns="http://www.w3.org/1999/xhtml">
-<head runat="server">
-    <title>Universal Planner</title>
+<html>
+<head>
+    <title></title>
+    <link href='Content/RegisterSheet.css' rel='stylesheet' type='text/css'>
+    <link href="http://netdna.bootstrapcdn.com/font-awesome/3.1.1/css/font-awesome.css" rel="stylesheet">
 </head>
 <body>
-    <section id="loginForm">
-                <div class="form-horizontal">
-                    <h4>Use a local account to log in.</h4>
-                    <hr />
-                    <asp:PlaceHolder runat="server" ID="ErrorMessage" Visible="false">
-                        <p class="text-danger">
-                            <asp:Literal runat="server" ID="FailureText" />
-                        </p>
-                    </asp:PlaceHolder>
-                   <%-- <div class="form-group">
-                        <asp:Label runat="server" AssociatedControlID="Email" CssClass="col-md-2 control-label">Email</asp:Label>
-                        <div class="col-md-10">
-                            <asp:TextBox runat="server" ID="Email" CssClass="form-control" TextMode="Email" />
-                            <asp:RequiredFieldValidator runat="server" ControlToValidate="Email"
-                                CssClass="text-danger" ErrorMessage="The email field is required." />
-                        </div>
-                    </div>--%>
-                    <div class="form-group">
-                        <asp:Label runat="server" AssociatedControlID="Password" CssClass="col-md-2 control-label">Password</asp:Label>
-                        <div class="col-md-10">
-                            <asp:TextBox runat="server" ID="Password" TextMode="Password" CssClass="form-control" />
-                            <asp:RequiredFieldValidator runat="server" ControlToValidate="Password" CssClass="text-danger" ErrorMessage="The password field is required." />
-                        </div>
-                    </div>
-                    <div class="form-group">
-                        <div class="col-md-offset-2 col-md-10">
-                            <div class="checkbox">
-                                <asp:CheckBox runat="server" ID="RememberMe" />
-                                <asp:Label runat="server" AssociatedControlID="RememberMe">Remember me?</asp:Label>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="form-group">
-                        <div class="col-md-offset-2 col-md-10">
-                            <asp:Button runat="server" Text="Log in" CssClass="btn btn-default" />
-                        </div>
-                    </div>
-                </div>
-                <p>
-                    <asp:HyperLink runat="server" ID="RegisterHyperLink" ViewStateMode="Disabled">Register as a new user</asp:HyperLink>
-                </p>
-                <p>
-                    <%-- Enable this once you have account confirmation enabled for password reset functionality
-                    <asp:HyperLink runat="server" ID="ForgotPasswordHyperLink" ViewStateMode="Disabled">Forgot your password?</asp:HyperLink>
-                    --%>
-                </p>
-            </section>
+    <div class="testbox">
+        <h1>Register User</h1>
+
+        <form runat="server">
+            <hr>
+            <%--<div class="accounttype">
+                <asp:RadioButton runat="server" ID="radioOne"  />
+                <label for="radioOne" class="radio">Personal</label>
+                <asp:RadioButton runat="server" ID="radioTwo" />
+                <label for="radioTwo" class="radio">Orgaion</label>
+            </div>
+            <hr>--%>
+            <label id="icon" for="name"><i class="icon-user"></i></label>
+            <asp:TextBox runat="server" id="newUsername" placeholder="Username" />
+            <label id="icon" for="name"><i class="icon-envelope"></i></label>
+            <asp:TextBox runat="server" id="newEmail" placeholder="Email" />
+            <label id="icon" for="name"><i class="icon-user"></i></label>
+            <asp:TextBox runat="server" id="newName" placeholder="Name" />
+            <label id="icon" for="name"><i class="icon-shield"></i></label>
+            <asp:TextBox runat="server" TextMode="Password" id="newPassword" placeholder="Password"  />
+            <%--<label id="icon" for="name"><i class="icon-shield"></i></label>
+            <asp:TextBox runat="server" TextMode="Password" id="newConfirmPassword" placeholder="Confirm Password"  />--%>
+           <%-- <div class="gender">
+                <input type="radio" value="None" id="male" name="gender" checked />
+                <label for="male" class="radio" chec>Male</label>
+                <input type="radio" value="None" id="female" name="gender" />
+                <label for="female" class="radio">Female</label>
+            </div>--%>
+            <p>By clicking Register, you agree on our <a href="#">terms and condition</a>.</p>
+            <asp:Button runat="server" OnClick="registerUser" ID="registerButton" CssClass="button" Text="Register" />
+            <%--<a id="RegisterButton" href="#" class="button">Register</a>--%>
+        </form>
+    </div>
 </body>
 </html>

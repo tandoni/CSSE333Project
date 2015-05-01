@@ -33,7 +33,7 @@ h6{ font-size:12px;}
 h1,h2,h3,h4,h5,h6{ color:#563D64;}
 small{ font-size:10px;}
 b, strong{ font-weight:bold;}
-a{ text-decoration: none; }
+a{ text-decoration:none; }
 a:hover{ text-decoration: underline; }
 .left { float:left; }
 .right { float:right; }

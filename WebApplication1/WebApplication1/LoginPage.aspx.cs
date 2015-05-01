@@ -6,6 +6,8 @@ using System.Web.UI;
 using System.Web.UI.WebControls;
 using System.Data.SqlClient;
 using System.Threading;
+using System.Configuration;
+using System.Data;
 
 namespace WebApplication1
 {
@@ -18,19 +20,38 @@ namespace WebApplication1
 
         public void loginValidate(object sender, EventArgs e)
         {
-            String cString = "Data Source=titan.cs.rose-hulman.edu;Initial Catalog=JHIT_Project43; User ID=" + username.Text + ";Password=" + password.Text + ";";
-            SqlConnection conn = new SqlConnection(cString);
+            String connString = ConfigurationManager.AppSettings["connectionInfo"];
+            SqlConnection conn = new SqlConnection(connString);
             try
             {
+                String commType = "validateUser";
+                String logUname = username.Text;
+                String logPass = password.Text;
+
                 conn.Open();
-                uname.Text = "Connected to DATABASE";
-                Thread.Sleep(100);
-              
+
+                SqlCommand cmd = new SqlCommand(commType, conn);
+                cmd.CommandType = CommandType.StoredProcedure;
+                cmd.Parameters.Add("@uname", SqlDbType.NVarChar).Value = logUname;
+                cmd.Parameters.Add("@pwd", SqlDbType.NVarChar).Value = logPass;
+
+                cmd.Parameters.Add("@returnVal", SqlDbType.Int).Direction = ParameterDirection.Output;
+
+                cmd.ExecuteNonQuery();
+                String result = cmd.Parameters["@returnVal"].Value.ToString();
+                if (result.Equals("1"))
+                {
+                    Response.Redirect("WelcomeUser.aspx");
+                    ClientScript.RegisterStartupScript(this.GetType(), "myalert", "alert('Database WORKS!');", true);
+                }
+                else
+                {
+                    errorLogin.Text = "Username and Password do not match! Please try again!";
+                }
             }
-            catch(Exception ex)
+            catch (Exception ex)
             {
-                uname.Text = "NOT CONNECTED TO DATABASE.";
-             //   ClientScript.RegisterClientScriptBlock(GetType(),"", "Database Error");//, null, false);
+                ClientScript.RegisterStartupScript(this.GetType(), "myalert", "alert('Database ERROR!');", true);
             }
         }
     }

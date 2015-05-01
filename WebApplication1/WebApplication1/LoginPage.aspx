@@ -14,21 +14,21 @@
                 <div>
                     <h1>Login/Sign Up</h1>
                     <div>
-                        <asp:TextBox type="text" placeholder="username" required="" id="username" runat="server"/>
+                        <asp:TextBox type="text" placeholder="username" required="" ID="username" runat="server" />
                     </div>
                     <div>
-                        <asp:TextBox type="password" placeholder="Password" required="" id="password" runat="server"/>
+                        <asp:TextBox type="password" placeholder="Password" required="" ID="password" runat="server" />
                     </div>
                     <div>
-                        <asp:Button id="loginBtn" OnClick="loginValidate" Text="Log in" runat="server" />
+                        <asp:Button ID="loginBtn" OnClick="loginValidate" Text="Log in" runat="server" />
                         <!--<input type="submit" value="Log in" /> -->
                         <a href="#">Lost your password?</a>
-                        <a href="RegisterUser.aspx">Register</a>
+                        <a href="RegisterUser.aspx" >Register</a>
                     </div>
                 </div>
             </form>
             <div>
-                <asp:Label ID="uname" runat="server"></asp:Label>
+                <asp:Label ID="errorLogin" runat="server"></asp:Label>
             </div>
         </section>
     </div>

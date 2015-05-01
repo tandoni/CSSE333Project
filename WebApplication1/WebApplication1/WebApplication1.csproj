@@ -165,6 +165,7 @@
     <Content Include="Content\bootstrap.css" />
     <Content Include="Content\bootstrap.min.css" />
     <Content Include="Content\LoginSheet.css" />
+    <Content Include="Content\RegisterSheet.css" />
     <Content Include="Content\Site.css" />
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
     <Content Include="LoginPage.aspx" />
@@ -173,6 +174,7 @@
     <Content Include="fonts\glyphicons-halflings-regular.ttf" />
     <Content Include="fonts\glyphicons-halflings-regular.eot" />
     <Content Include="Account\Web.config" />
+    <Content Include="WelcomeUser.aspx" />
     <None Include="Scripts\jquery-1.10.2.intellisense.js" />
     <Content Include="RegisterUser.aspx" />
     <Content Include="Scripts\bootstrap.js" />
@@ -392,6 +394,13 @@
     </Compile>
     <Compile Include="ViewSwitcher.ascx.designer.cs">
       <DependentUpon>ViewSwitcher.ascx</DependentUpon>
+    </Compile>
+    <Compile Include="WelcomeUser.aspx.cs">
+      <DependentUpon>WelcomeUser.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="WelcomeUser.aspx.designer.cs">
+      <DependentUpon>WelcomeUser.aspx</DependentUpon>
     </Compile>
   </ItemGroup>
   <ItemGroup>
