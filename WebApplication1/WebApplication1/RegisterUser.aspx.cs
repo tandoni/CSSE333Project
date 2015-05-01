@@ -7,6 +7,8 @@ using System.Web.UI.WebControls;
 using System.Data.SqlClient;
 using System.Configuration;
 using System.Data;
+using System.Text;
+using System.Security.Cryptography;
 
 namespace WebApplication1
 {
@@ -32,10 +34,17 @@ namespace WebApplication1
                 //String queryText = "exec addPerson " + regUname + " " +
                 //    regPass + " " + regName + " " + regEmail;
 
+                var data = Encoding.ASCII.GetBytes(regPass);
+                var sha1 = new SHA1CryptoServiceProvider();
+                var sha1data = sha1.ComputeHash(data);
+
+                String hashedPassword = Encoding.ASCII.GetString(sha1data);
+
+
                 SqlCommand cmd = new SqlCommand(commType, conn);
                 cmd.CommandType = System.Data.CommandType.StoredProcedure;
                 cmd.Parameters.Add("@uname", SqlDbType.NVarChar).Value = regUname;
-                cmd.Parameters.Add("@pwd", SqlDbType.NVarChar).Value = regPass;
+                cmd.Parameters.Add("@pwd", SqlDbType.NVarChar).Value = hashedPassword;
                 cmd.Parameters.Add("@name", SqlDbType.NVarChar).Value = regName;
                 cmd.Parameters.Add("@email", SqlDbType.NVarChar).Value = regEmail;
 
