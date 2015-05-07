@@ -16,7 +16,10 @@ namespace WebApplication1
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-            
+            if(radioOne.Checked)
+            {
+                
+            }
         }
 
         public void registerUser(object sender, EventArgs e)
@@ -25,14 +28,10 @@ namespace WebApplication1
             SqlConnection conn = new SqlConnection(connString);
             try
             {
-                String commType = "addPerson";
-                String regUname = newUsername.Text ;
+                String regUname = newUsername.Text;
                 String regPass = newPassword.Text;
                 String regName = newName.Text;
                 String regEmail = newEmail.Text;
-
-                //String queryText = "exec addPerson " + regUname + " " +
-                //    regPass + " " + regName + " " + regEmail;
 
                 var data = Encoding.ASCII.GetBytes(regPass);
                 var sha1 = new SHA1CryptoServiceProvider();
@@ -40,22 +39,29 @@ namespace WebApplication1
 
                 String hashedPassword = Encoding.ASCII.GetString(sha1data);
 
+                if (radioTwo.Checked)
+                {
+                    String commType = "addOrganization";
+                    SqlCommand cmd = new SqlCommand(commType, conn);
+                    cmd.CommandType = CommandType.StoredProcedure;
+                    cmd.Parameters.Add("@uname", SqlDbType.NVarChar).Value = regUname;
+                    cmd.Parameters.Add("@pwd", SqlDbType.NVarChar).Value = hashedPassword;
+                    cmd.Parameters.Add("@name", SqlDbType.NVarChar).Value = regName;
+                    cmd.Parameters.Add("@email", SqlDbType.NVarChar).Value = regEmail;
 
-                SqlCommand cmd = new SqlCommand(commType, conn);
-                cmd.CommandType = System.Data.CommandType.StoredProcedure;
-                cmd.Parameters.Add("@uname", SqlDbType.NVarChar).Value = regUname;
-                cmd.Parameters.Add("@pwd", SqlDbType.NVarChar).Value = hashedPassword;
-                cmd.Parameters.Add("@name", SqlDbType.NVarChar).Value = regName;
-                cmd.Parameters.Add("@email", SqlDbType.NVarChar).Value = regEmail;
-
-                conn.Open();
-                cmd.ExecuteNonQuery();
-                conn.Close();
-                ClientScript.RegisterStartupScript(this.GetType(), "myalert", "alert('You registered sucessfully!');", true);
+                    conn.Open();
+                    cmd.ExecuteNonQuery();
+                    conn.Close();
+                    ClientScript.RegisterStartupScript(GetType(), "myalert", "alert('You ORGANIZATION registered sucessfully!');", true);
+                }
+                else if(radioOne.Checked)
+                {
+                    ClientScript.RegisterStartupScript(GetType(), "myalert", "alert('You PERSON registered sucessfully!');", true);
+                }
             }
             catch (Exception ex)
             {
-                ClientScript.RegisterStartupScript(this.GetType(), "myalert", "alert('Database ERROR!');", true);
+                ClientScript.RegisterStartupScript(GetType(), "myalert", "alert('Database ERROR!');", true);
             }
         }
     }
