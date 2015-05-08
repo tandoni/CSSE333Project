@@ -1,11 +1,5 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Web;
-using System.Web.UI;
-using System.Web.UI.WebControls;
 using System.Data.SqlClient;
-using System.Threading;
 using System.Configuration;
 using System.Data;
 using System.Text;
@@ -15,6 +9,10 @@ namespace WebApplication1
 {
     public partial class LoginPage : System.Web.UI.Page
     {
+
+        public String logUname;
+        String logPass;
+        public String hashedPassword;
         protected void Page_Load(object sender, EventArgs e)
         {
 
@@ -27,14 +25,14 @@ namespace WebApplication1
             try
             {
                 String commType = "validateUser";
-                String logUname = username.Text;
-                String logPass = password.Text;
+                logUname = username.Text;
+                logPass = password.Text;
 
                 var data = Encoding.ASCII.GetBytes(logPass);
                 var sha1 = new SHA1CryptoServiceProvider();
                 var sha1data = sha1.ComputeHash(data);
 
-                String hashedPassword = Encoding.ASCII.GetString(sha1data);
+                hashedPassword = Encoding.ASCII.GetString(sha1data);
 
 
                 conn.Open();

@@ -8,5 +8,7 @@
 </head>
 <body>
     <h1>WELCOME!</h1>
+    <a href="RegisterOrganization.aspx">Register an Organization</a>
+    <a href="EventPage.aspx">Add an Event</a>
 </body>
 </html>

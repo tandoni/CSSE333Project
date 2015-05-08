@@ -10,43 +10,43 @@
 namespace WebApplication1 {
     
     
-    public partial class RegisterUser {
+    public partial class RegisterOrganization {
         
         /// <summary>
-        /// newUsername control.
+        /// newOrgname control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox newUsername;
+        protected global::System.Web.UI.WebControls.TextBox newOrgname;
         
         /// <summary>
-        /// newEmail control.
+        /// newWebsite control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox newEmail;
+        protected global::System.Web.UI.WebControls.TextBox newWebsite;
         
         /// <summary>
-        /// newName control.
+        /// newDescription control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox newName;
+        protected global::System.Web.UI.WebControls.TextBox newDescription;
         
         /// <summary>
-        /// newPassword control.
+        /// dropDownLocations control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox newPassword;
+        protected global::System.Web.UI.WebControls.DropDownList dropDownLocations;
         
         /// <summary>
         /// registerButton control.

@@ -10,43 +10,70 @@
 namespace WebApplication1 {
     
     
-    public partial class RegisterUser {
+    public partial class EventPage {
         
         /// <summary>
-        /// newUsername control.
+        /// newEventName control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox newUsername;
+        protected global::System.Web.UI.WebControls.TextBox newEventName;
         
         /// <summary>
-        /// newEmail control.
+        /// newDescription control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox newEmail;
+        protected global::System.Web.UI.WebControls.TextBox newDescription;
         
         /// <summary>
-        /// newName control.
+        /// calender1 control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox newName;
+        protected global::System.Web.UI.WebControls.Calendar calender1;
         
         /// <summary>
-        /// newPassword control.
+        /// hourTime control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox newPassword;
+        protected global::System.Web.UI.WebControls.DropDownList hourTime;
+        
+        /// <summary>
+        /// minuteTime control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.DropDownList minuteTime;
+        
+        /// <summary>
+        /// AMPM control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.DropDownList AMPM;
+        
+        /// <summary>
+        /// dropDownOrgs control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.DropDownList dropDownOrgs;
         
         /// <summary>
         /// registerButton control.
