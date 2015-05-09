@@ -14,6 +14,24 @@ namespace WebApplication1
         {
             populateMinuteAndHours();
             populateOrgs();
+            populate1();
+        }
+
+        public void populate1()
+        {
+            String connString = ConfigurationManager.AppSettings["connectionInfo"];
+            SqlConnection con = new SqlConnection(connString);
+            con.Open();
+            String commType2 = "locationNames";
+            SqlCommand cmd2 = new SqlCommand(commType2, con);
+            cmd2.CommandType = CommandType.StoredProcedure;
+            SqlDataReader reader = cmd2.ExecuteReader();
+
+            dropDownLocations.DataSource = reader;
+            dropDownLocations.DataValueField = "lid";
+            dropDownLocations.DataTextField = "name";
+            dropDownLocations.DataBind();
+            con.Close();
         }
 
         public void populateMinuteAndHours()
@@ -67,7 +85,8 @@ namespace WebApplication1
 
         public void eventAdd(object sender, EventArgs e)
         {
-            try {
+            try
+            {
                 String evName = newEventName.Text;
                 String eventDescription = newDescription.Text;
                 String dateHour = hourTime.SelectedValue.ToString();
@@ -102,6 +121,7 @@ namespace WebApplication1
                 cmd.Parameters.Add("@ename", SqlDbType.VarChar).Value = evName;
                 cmd.Parameters.Add("@description", SqlDbType.VarChar).Value = eventDescription;
                 cmd.Parameters.Add("@time", SqlDbType.VarChar).Value = finalString;
+                cmd.Parameters.Add("@lid", SqlDbType.Int).Value = Convert.ToInt32(dropDownLocations.DataValueField);
 
                 conn.Open();
                 cmd.ExecuteNonQuery();
@@ -109,7 +129,7 @@ namespace WebApplication1
 
                 ClientScript.RegisterStartupScript(GetType(), "myalert", "alert('You added an event successfully');", true);
             }
-            catch(Exception ex)
+            catch (Exception ex)
             {
                 ClientScript.RegisterStartupScript(GetType(), "myalert", "alert('" + ex.Message + "');", true);
             }

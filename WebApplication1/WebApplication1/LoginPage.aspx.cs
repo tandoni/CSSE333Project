@@ -22,6 +22,7 @@ namespace WebApplication1
         {
             String connString = ConfigurationManager.AppSettings["connectionInfo"];
             SqlConnection conn = new SqlConnection(connString);
+            Session["SQLConnection"] = conn;
             try
             {
                 String commType = "validateUser";
@@ -34,6 +35,8 @@ namespace WebApplication1
 
                 hashedPassword = Encoding.ASCII.GetString(sha1data);
 
+                Session["UserName"] = logUname;
+                Session["Password"] = hashedPassword;
 
                 conn.Open();
 

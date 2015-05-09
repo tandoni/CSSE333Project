@@ -33,20 +33,24 @@
                 <br />
                 <asp:DropDownList AppendDataBoundItems="true" ID="dropDownOrgs" runat="server">
                 </asp:DropDownList>
+                <asp:DropDownList AppendDataBoundItems="true" ID="dropDownLocations" runat="server">
+                    <asp:ListItem Value="None" Text="None" Selected="True">
+                    </asp:ListItem>
+                </asp:DropDownList>
 
             </div>
 
             <p>By clicking Register, you agree on our <a href="#">terms and condition</a>.</p>
             <asp:Button runat="server" ValidationGroup="registerFields" OnClick="eventAdd" ID="registerButton" CssClass="button" Text="Register" />
             <a href="LoginPage.aspx">Go Back</a>
-            <%-- <div>
-                <asp:RequiredFieldValidator EnableClientScript="true" ValidationGroup="registerFields" ErrorMessage="Enter Username" runat="server" ControlToValidate="newUsername">
+            <div>
+                <asp:RequiredFieldValidator EnableClientScript="true" ValidationGroup="registerFields" ErrorMessage="Enter Event Name" runat="server" ControlToValidate="newEventName">
                 </asp:RequiredFieldValidator>
-                <asp:RequiredFieldValidator EnableClientScript="true" ValidationGroup="registerFields" ErrorMessage="Enter Password" runat="server" ControlToValidate="newPassword">
+               <%-- <asp:RequiredFieldValidator EnableClientScript="true" ValidationGroup="registerFields" ErrorMessage="Enter Password" runat="server" ControlToValidate="newPassword">
                 </asp:RequiredFieldValidator>
                 <asp:RequiredFieldValidator EnableClientScript="true" ValidationGroup="registerFields" ErrorMessage="Enter Email" runat="server" ControlToValidate="newEmail">
-                </asp:RequiredFieldValidator>
-            </div>--%>
+                </asp:RequiredFieldValidator>--%>
+            </div>
         </form>
     </div>
 </body>
