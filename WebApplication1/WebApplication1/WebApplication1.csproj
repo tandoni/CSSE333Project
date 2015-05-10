@@ -168,6 +168,8 @@
     <Content Include="Content\LoginSheet.css" />
     <Content Include="Content\RegisterSheet.css" />
     <Content Include="Content\Site.css" />
+    <Content Include="EditEvent.aspx" />
+    <Content Include="EditOrganization.aspx" />
     <Content Include="EventPage.aspx" />
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
     <Content Include="LoginPage.aspx" />
@@ -356,6 +358,20 @@
     </Compile>
     <Compile Include="Default.aspx.designer.cs">
       <DependentUpon>Default.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="EditEvent.aspx.cs">
+      <DependentUpon>EditEvent.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="EditEvent.aspx.designer.cs">
+      <DependentUpon>EditEvent.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="EditOrganization.aspx.cs">
+      <DependentUpon>EditOrganization.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="EditOrganization.aspx.designer.cs">
+      <DependentUpon>EditOrganization.aspx</DependentUpon>
     </Compile>
     <Compile Include="EventPage.aspx.cs">
       <DependentUpon>EventPage.aspx</DependentUpon>

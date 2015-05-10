@@ -10,5 +10,6 @@
     <h1>WELCOME!</h1>
     <a href="RegisterOrganization.aspx">Register an Organization</a>
     <a href="EventPage.aspx">Add an Event</a>
+    <a href="EditOrganization.aspx">Edit an Organization</a>
 </body>
 </html>

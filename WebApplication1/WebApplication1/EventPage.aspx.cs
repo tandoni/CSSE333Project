@@ -12,12 +12,16 @@ namespace WebApplication1
     {
         protected void Page_Load(object sender, EventArgs e)
         {
+            dropDownOrgs.Items.Clear();
+            hourTime.Items.Clear();
+            minuteTime.Items.Clear();
+            dropDownLocations.Items.Clear();
             populateMinuteAndHours();
             populateOrgs();
-            populate1();
+            populateLocations();
         }
 
-        public void populate1()
+        public void populateLocations()
         {
             String connString = ConfigurationManager.AppSettings["connectionInfo"];
             SqlConnection con = new SqlConnection(connString);

@@ -2,8 +2,6 @@
 using System.Data.SqlClient;
 using System.Configuration;
 using System.Data;
-using System.Security.Cryptography;
-using System.Text;
 
 namespace WebApplication1
 {
@@ -11,6 +9,7 @@ namespace WebApplication1
     {
         protected void Page_Load(object sender, EventArgs e)
         {
+            dropDownLocations.Items.Clear();
             populate1();
         }
 
@@ -39,23 +38,17 @@ namespace WebApplication1
                 String regUname = newOrgname.Text;
                 String regWebpage = newWebsite.Text;
                 String regDesc = newDescription.Text;
-                LoginPage logged = new LoginPage();
-                String uName = logged.logUname;
-                String password = logged.hashedPassword;
 
-                var data = Encoding.ASCII.GetBytes("123");
-                var sha1 = new SHA1CryptoServiceProvider();
-                var sha1data = sha1.ComputeHash(data);
-
-                String hashedPassword = Encoding.ASCII.GetString(sha1data);
+                string userName = Session["UserName"].ToString();
+                string password = Session["Password"].ToString();
 
                 String commType = "addOrganization";
 
                 SqlCommand cmd = new SqlCommand(commType, conn);
 
                 cmd.CommandType = CommandType.StoredProcedure;
-                cmd.Parameters.Add("@uname", SqlDbType.VarChar).Value = "123";
-                cmd.Parameters.Add("@pwd", SqlDbType.VarChar).Value = hashedPassword;
+                cmd.Parameters.Add("@uname", SqlDbType.VarChar).Value = userName;
+                cmd.Parameters.Add("@pwd", SqlDbType.VarChar).Value = password;
                 cmd.Parameters.Add("@name", SqlDbType.VarChar).Value = regUname;
                 cmd.Parameters.Add("@webpage", SqlDbType.VarChar).Value = regWebpage;
                 cmd.Parameters.Add("@description", SqlDbType.VarChar).Value = regDesc;
