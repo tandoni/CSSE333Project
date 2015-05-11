@@ -26,7 +26,7 @@
             <hr />
             <div id="editOrgBox">
                 <asp:DropDownList onclick="work()" AppendDataBoundItems="true" ID="dropDownOrgs" runat="server">
-                    <asp:ListItem Text="--Select an Organization--" ></asp:ListItem>
+                   
                 </asp:DropDownList>
                 <asp:RequiredFieldValidator runat="server" ID="rfl1" ControlToValidate="dropDownOrgs" ErrorMessage="Please select an Organization" InitialValue="--Select an Organization--"></asp:RequiredFieldValidator>
                 <br />
@@ -41,12 +41,10 @@
                 <asp:TextBox placeholder="Edit Description" runat="server" ID="editDesc" />
 
                 <asp:DropDownList AppendDataBoundItems="true" ID="dropDownLocations" runat="server">
-                    <asp:ListItem Value="None" Text="None" Selected="True">
-                    </asp:ListItem>
+                    
                 </asp:DropDownList>
 
                 <asp:DropDownList AppendDataBoundItems="true" ID="dropDownPartOfOther" runat="server">
-                    <asp:ListItem Text="None" Value="\0" Selected="True"></asp:ListItem>
                 </asp:DropDownList>
 
             </div>

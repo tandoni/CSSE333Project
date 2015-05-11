@@ -8,8 +8,7 @@ namespace WebApplication1
     public partial class RegisterOrganization : System.Web.UI.Page
     {
         protected void Page_Load(object sender, EventArgs e)
-        {
-            dropDownLocations.Items.Clear();
+        { 
             populate1();
         }
 
@@ -60,6 +59,8 @@ namespace WebApplication1
                 conn.Open();
                 int num = cmd.ExecuteNonQuery();
                 conn.Close();
+                dropDownLocations.Items.Clear();
+                populate1();
                 if (num == 0)
                 {
                     ClientScript.RegisterStartupScript(GetType(), "myalert", "alert('No rows Affected');", true);

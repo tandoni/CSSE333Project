@@ -12,10 +12,14 @@ namespace WebApplication1
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-            dropDownOrgs.Items.Clear();
-            hourTime.Items.Clear();
-            minuteTime.Items.Clear();
-            dropDownLocations.Items.Clear();
+            if (!IsPostBack)
+            {
+                dropDownOrgs.Items.Clear();
+                hourTime.Items.Clear();
+                minuteTime.Items.Clear();
+                dropDownLocations.Items.Clear();
+            }
+
             populateMinuteAndHours();
             populateOrgs();
             populateLocations();
@@ -23,6 +27,7 @@ namespace WebApplication1
 
         public void populateLocations()
         {
+            dropDownLocations.Items.Add(new ListItem("None", "-1"));
             String connString = ConfigurationManager.AppSettings["connectionInfo"];
             SqlConnection con = new SqlConnection(connString);
             con.Open();
@@ -40,7 +45,6 @@ namespace WebApplication1
 
         public void populateMinuteAndHours()
         {
-
             for (int i = 1; i < 13; i++)
             {
                 hourTime.Items.Add(new ListItem(i.ToString(), i.ToString()));
@@ -69,15 +73,11 @@ namespace WebApplication1
             SqlCommand cmd2 = new SqlCommand(commType2, con);
             cmd2.CommandType = CommandType.StoredProcedure;
 
-            var data = Encoding.ASCII.GetBytes("123");
-            var sha1 = new SHA1CryptoServiceProvider();
-            var sha1data = sha1.ComputeHash(data);
+            string userName = Session["UserName"].ToString();
+            string password = Session["Password"].ToString();
 
-            String hashedPassword = Encoding.ASCII.GetString(sha1data);
-
-
-            cmd2.Parameters.Add("@uname", SqlDbType.VarChar).Value = "123";
-            cmd2.Parameters.Add("@pwd", SqlDbType.VarChar).Value = hashedPassword;
+            cmd2.Parameters.Add("@uname", SqlDbType.VarChar).Value = userName;
+            cmd2.Parameters.Add("@pwd", SqlDbType.VarChar).Value = password;
             SqlDataReader reader = cmd2.ExecuteReader();
 
             dropDownOrgs.DataSource = reader;
@@ -103,12 +103,8 @@ namespace WebApplication1
                 String finalString = month.Trim() + "/" + date.Trim() + "/" + year.Trim()
                     + " " + dateHour.Trim() + ":" + dateMinute.Trim() + " " + ampm.Trim();
 
-                var data = Encoding.ASCII.GetBytes("123");
-                var sha1 = new SHA1CryptoServiceProvider();
-                var sha1data = sha1.ComputeHash(data);
-
-                String hashedPassword = Encoding.ASCII.GetString(sha1data);
-
+                String userid = Session["UserName"].ToString();
+                String password = Session["Password"].ToString();
 
                 String connString = ConfigurationManager.AppSettings["connectionInfo"];
                 SqlConnection conn = new SqlConnection(connString);
@@ -119,17 +115,25 @@ namespace WebApplication1
 
                 cmd.CommandType = CommandType.StoredProcedure;
 
-                cmd.Parameters.Add("@uname", SqlDbType.VarChar).Value = "123";
-                cmd.Parameters.Add("@pwd", SqlDbType.VarChar).Value = hashedPassword;
+                cmd.Parameters.Add("@uname", SqlDbType.VarChar).Value = userid;
+                cmd.Parameters.Add("@pwd", SqlDbType.VarChar).Value = password;
                 cmd.Parameters.Add("@name", SqlDbType.VarChar).Value = dropDownOrgs.SelectedItem.Value;
                 cmd.Parameters.Add("@ename", SqlDbType.VarChar).Value = evName;
                 cmd.Parameters.Add("@description", SqlDbType.VarChar).Value = eventDescription;
                 cmd.Parameters.Add("@time", SqlDbType.VarChar).Value = finalString;
-                cmd.Parameters.Add("@lid", SqlDbType.Int).Value = Convert.ToInt32(dropDownLocations.DataValueField);
+                cmd.Parameters.Add("@lid", SqlDbType.Int).Value = Convert.ToInt32(dropDownLocations.SelectedItem.Value);
 
                 conn.Open();
                 cmd.ExecuteNonQuery();
                 conn.Close();
+
+                dropDownOrgs.Items.Clear();
+                hourTime.Items.Clear();
+                minuteTime.Items.Clear();
+                dropDownLocations.Items.Clear();
+                populateMinuteAndHours();
+                populateOrgs();
+                populateLocations();
 
                 ClientScript.RegisterStartupScript(GetType(), "myalert", "alert('You added an event successfully');", true);
             }

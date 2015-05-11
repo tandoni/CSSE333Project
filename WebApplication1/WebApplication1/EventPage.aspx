@@ -22,9 +22,9 @@
                 <asp:TextBox runat="server" ID="newDescription" placeholder="Description" />
 
                 <asp:Calendar runat="server" ID="calender1"></asp:Calendar>
-                <asp:DropDownList ID="hourTime" runat="server" AppendDataBoundItems="true">
+                <asp:DropDownList ID="hourTime" runat="server" >
                 </asp:DropDownList>
-                <asp:DropDownList ID="minuteTime" runat="server" AppendDataBoundItems="true">
+                <asp:DropDownList ID="minuteTime" runat="server" >
                 </asp:DropDownList>
                 <asp:DropDownList ID="AMPM" runat="server">
                     <asp:ListItem Value="AM"></asp:ListItem>
@@ -34,8 +34,7 @@
                 <asp:DropDownList AppendDataBoundItems="true" ID="dropDownOrgs" runat="server">
                 </asp:DropDownList>
                 <asp:DropDownList AppendDataBoundItems="true" ID="dropDownLocations" runat="server">
-                    <asp:ListItem Value="None" Text="None" Selected="True">
-                    </asp:ListItem>
+                    
                 </asp:DropDownList>
 
             </div>

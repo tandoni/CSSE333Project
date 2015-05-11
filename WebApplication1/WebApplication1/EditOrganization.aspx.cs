@@ -16,14 +16,14 @@ namespace WebApplication1
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-            dropDownOrgs.Items.Clear();
-            dropDownLocations.Items.Clear();
             populateLocations();
             populateOrgs();
+            populatePartOfOrgs();
         }
 
         public void populateOrgs()
         {
+            dropDownOrgs.Items.Add(new ListItem("--Select an Organization--", "\0", true));
             String connString = ConfigurationManager.AppSettings["connectionInfo"];
             SqlConnection con = new SqlConnection(connString);
             con.Open();
@@ -44,6 +44,29 @@ namespace WebApplication1
             dropDownOrgs.DataTextField = "name";
             dropDownOrgs.DataBind();
 
+            //ListItem itemToRemove = dropDownPartOfOther.Items.FindByValue("")
+
+            con.Close();
+        }
+
+        public void populatePartOfOrgs()
+        {
+            dropDownPartOfOther.Items.Add(new ListItem("--Select a Parent Organization--", "\0", true));
+            String connString = ConfigurationManager.AppSettings["connectionInfo"];
+            SqlConnection con = new SqlConnection(connString);
+            con.Open();
+            String commType2 = "myOrganizations";
+            SqlCommand cmd2 = new SqlCommand(commType2, con);
+            cmd2.CommandType = CommandType.StoredProcedure;
+
+            string userName = Session["UserName"].ToString();
+            string password = Session["Password"].ToString();
+
+            cmd2.Parameters.Add("@uname", SqlDbType.VarChar).Value = userName;
+            cmd2.Parameters.Add("@pwd", SqlDbType.VarChar).Value = password;
+
+            SqlDataReader reader = cmd2.ExecuteReader();
+
             dropDownPartOfOther.DataSource = reader;
             dropDownPartOfOther.DataValueField = "name";
             dropDownPartOfOther.DataTextField = "name";
@@ -56,6 +79,7 @@ namespace WebApplication1
 
         public void populateLocations()
         {
+            dropDownLocations.Items.Add(new ListItem("--Select a new Headquarter--", "\0", true));
             String connString = ConfigurationManager.AppSettings["connectionInfo"];
             SqlConnection con = new SqlConnection(connString);
             con.Open();
@@ -75,32 +99,49 @@ namespace WebApplication1
         {
             try
             {
-                String connString = ConfigurationManager.AppSettings["connectionInfo"];
-                SqlConnection con = new SqlConnection(connString);
-                con.Open();
-                String commType2 = "editOrganization";
-                SqlCommand cmd2 = new SqlCommand(commType2, con);
-                cmd2.CommandType = CommandType.StoredProcedure;
+                if (dropDownOrgs.SelectedItem.Text.ToString().Equals(dropDownPartOfOther.SelectedItem.Text.ToString()))
+                {
+                    ClientScript.RegisterStartupScript(GetType(), "myalert", "alert('Error: Organization cannot be part of itself.');", true);
+                }
+                else
+                {
+                    String connString = ConfigurationManager.AppSettings["connectionInfo"];
+                    SqlConnection con = new SqlConnection(connString);
 
-                string userName = Session["UserName"].ToString();
-                string password = Session["Password"].ToString();
+                    String editedWebpage = editUrl.Text;
+                    String editedDesc = editDesc.Text;
 
-                cmd2.Parameters.Add("@uname", SqlDbType.VarChar).Value = userName;
-                cmd2.Parameters.Add("@pwd", SqlDbType.VarChar).Value = password;
-                cmd2.Parameters.Add("@name", SqlDbType.VarChar).Value = dropDownOrgs.SelectedItem.Value;
-                cmd2.Parameters.Add("@webpage", SqlDbType.VarChar).Value = editUrl.Text;
-                cmd2.Parameters.Add("@description", SqlDbType.VarChar).Value = editDesc.Text;
-                cmd2.Parameters.Add("@lid", SqlDbType.VarChar).Value = dropDownLocations.SelectedItem.Value;
+                    String commType2 = "editOrganization";
+                    SqlCommand cmd2 = new SqlCommand(commType2, con);
+                    cmd2.CommandType = CommandType.StoredProcedure;
 
-                cmd2.ExecuteNonQuery();
-                con.Close();
+                    string userName = Session["UserName"].ToString();
+                    string password = Session["Password"].ToString();
 
-                ClientScript.RegisterStartupScript(GetType(), "myalert", "alert('You edited an organization successfully');", true);
+                    cmd2.Parameters.Add("@uname", SqlDbType.VarChar).Value = userName;
+                    cmd2.Parameters.Add("@pwd", SqlDbType.VarChar).Value = password;
+                    cmd2.Parameters.Add("@name", SqlDbType.VarChar).Value = dropDownOrgs.SelectedItem.Value.ToString();
+                    cmd2.Parameters.Add("@webpage", SqlDbType.VarChar).Value = editedWebpage;
+                    cmd2.Parameters.Add("@description", SqlDbType.VarChar).Value = editedDesc;
+                    cmd2.Parameters.Add("@lid", SqlDbType.Int).Value = Convert.ToInt32(dropDownLocations.SelectedItem.Value);
+                    con.Open();
+                    cmd2.ExecuteNonQuery();
+                    con.Close();
+
+                    ClientScript.RegisterStartupScript(GetType(), "myalert", "alert('You edited an organization successfully');", true);
+                }
+                dropDownLocations.Items.Clear();
+                dropDownOrgs.Items.Clear();
+                dropDownPartOfOther.Items.Clear();
+                populateLocations();
+                populateOrgs();
+                populatePartOfOrgs();
             }
             catch (Exception ex)
             {
                 ClientScript.RegisterStartupScript(GetType(), "myalert", "alert('" + ex.Message + "');", true);
             }
+
         }
 
         public void defaultOrgData(object sender, EventArgs e)
@@ -118,7 +159,7 @@ namespace WebApplication1
             cmd2.Parameters.Add("@name", SqlDbType.VarChar).Value = dropDownOrgs.SelectedItem.Value.ToString();
             cmd2.CommandType = CommandType.StoredProcedure;
             SqlDataReader reader = cmd2.ExecuteReader();
-            
+
             //dropDownLocations.SelectedItem.Value = reader["lid"].ToString();
             //dropDownLocations.DataValueField = "lid";
             //dropDownLocations.DataTextField = "name";

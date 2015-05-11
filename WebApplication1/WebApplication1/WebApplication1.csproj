@@ -169,6 +169,7 @@
     <Content Include="Content\RegisterSheet.css" />
     <Content Include="Content\Site.css" />
     <Content Include="EditEvent.aspx" />
+    <Content Include="EditEventOrgSelect.aspx" />
     <Content Include="EditOrganization.aspx" />
     <Content Include="EventPage.aspx" />
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
@@ -179,6 +180,7 @@
     <Content Include="fonts\glyphicons-halflings-regular.eot" />
     <Content Include="Account\Web.config" />
     <Content Include="RegisterOrganization.aspx" />
+    <Content Include="RemoveEvent.aspx" />
     <Content Include="WelcomeUser.aspx" />
     <None Include="Scripts\jquery-1.10.2.intellisense.js" />
     <Content Include="RegisterUser.aspx" />
@@ -366,6 +368,13 @@
     <Compile Include="EditEvent.aspx.designer.cs">
       <DependentUpon>EditEvent.aspx</DependentUpon>
     </Compile>
+    <Compile Include="EditEventOrgSelect.aspx.cs">
+      <DependentUpon>EditEventOrgSelect.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="EditEventOrgSelect.aspx.designer.cs">
+      <DependentUpon>EditEventOrgSelect.aspx</DependentUpon>
+    </Compile>
     <Compile Include="EditOrganization.aspx.cs">
       <DependentUpon>EditOrganization.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -405,6 +414,13 @@
     </Compile>
     <Compile Include="RegisterUser.aspx.designer.cs">
       <DependentUpon>RegisterUser.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="RemoveEvent.aspx.cs">
+      <DependentUpon>RemoveEvent.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="RemoveEvent.aspx.designer.cs">
+      <DependentUpon>RemoveEvent.aspx</DependentUpon>
     </Compile>
     <Compile Include="Site.Master.cs">
       <DependentUpon>Site.Master</DependentUpon>
