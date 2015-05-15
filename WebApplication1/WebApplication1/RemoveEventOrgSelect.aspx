@@ -1,4 +1,4 @@
-﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="EditEventOrgSelect.aspx.cs" Inherits="WebApplication1.EditEventOrgSelect" %>
+﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="RemoveEventOrgSelect.aspx.cs" Inherits="WebApplication1.RemoveEventOrgSelect" %>
 
 <!DOCTYPE html>
 

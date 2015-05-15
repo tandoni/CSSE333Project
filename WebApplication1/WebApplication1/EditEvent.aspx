@@ -25,33 +25,33 @@
             <div id="editOrgBox">
                 <asp:DropDownList onclick="work()" AppendDataBoundItems="true" ID="dropDownEvents" runat="server">
                 </asp:DropDownList>
-                <asp:RequiredFieldValidator runat="server" ID="rfl1" ControlToValidate="dropDownEvents" ErrorMessage="Please select an Organization" InitialValue="--Select an Organization--"></asp:RequiredFieldValidator>
+                <asp:RequiredFieldValidator runat="server" ID="rfl2" ControlToValidate="dropDownEvents" ErrorMessage="Please select an Organization" InitialValue="--Select an Organization--"></asp:RequiredFieldValidator>
                 <br />
 
                 <label id="icon" for="name"><i class="icon-user"></i></label>
                 <asp:TextBox runat="server" placeholder="Edit Event Name" ID="eventName"></asp:TextBox>
 
                 <label id="icon" for="name"><i class="icon-envelope"></i></label>
-                <asp:TextBox placeholder="Edit Description" runat="server" ID="editDesc" />
+                <asp:TextBox placeholder="Edit Description" runat="server" ID="editDesc2" />
 
-                <asp:Calendar runat="server" ID="calender1"></asp:Calendar>
-                <asp:DropDownList ID="hourTime" runat="server" AppendDataBoundItems="true">
+                <asp:Calendar runat="server" ID="calender2"></asp:Calendar>
+                <asp:DropDownList ID="hourTime2" runat="server" AppendDataBoundItems="true">
                 </asp:DropDownList>
-                <asp:DropDownList ID="minuteTime" runat="server" AppendDataBoundItems="true">
+                <asp:DropDownList ID="minuteTime2" runat="server" AppendDataBoundItems="true">
                 </asp:DropDownList>
-                <asp:DropDownList ID="AMPM" runat="server">
+                <asp:DropDownList ID="AMPM2" runat="server">
                     <asp:ListItem Value="AM"></asp:ListItem>
                     <asp:ListItem Value="PM"></asp:ListItem>
                 </asp:DropDownList>
                 <br />
 
-                <asp:DropDownList AppendDataBoundItems="true" ID="dropDownLocations" runat="server">
+                <asp:DropDownList AppendDataBoundItems="true" ID="dropDownLocations2" runat="server">
                 </asp:DropDownList>
 
             </div>
 
             <p>By clicking Register, you agree on our <a href="#">terms and condition</a>.</p>
-            <asp:Button runat="server" OnClick="editEvent" ID="editEventBtn" CssClass="button" Text="Submit" />
+            <asp:Button runat="server" OnClick="editEvent2" ID="editEventBtn2" CssClass="button" Text="Submit" />
             <a href="WelcomeUser.aspx">Go Back</a>
         </form>
     </div>

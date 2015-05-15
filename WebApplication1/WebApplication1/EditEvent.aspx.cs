@@ -1,11 +1,7 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.Configuration;
 using System.Data;
 using System.Data.SqlClient;
-using System.Linq;
-using System.Web;
-using System.Web.UI;
 using System.Web.UI.WebControls;
 
 namespace WebApplication1
@@ -22,17 +18,17 @@ namespace WebApplication1
         {
             if (IsPostBack)
             {
-                date = calender1.SelectedDate.Day.ToString();
-                month = calender1.SelectedDate.Month.ToString();
-                year = calender1.SelectedDate.Year.ToString();
-                hour = hourTime.SelectedItem.Value.ToString();
-                minute = minuteTime.SelectedItem.Value.ToString();
-                ampm = AMPM.SelectedItem.Value.ToString();
+                date = calender2.SelectedDate.Day.ToString();
+                month = calender2.SelectedDate.Month.ToString();
+                year = calender2.SelectedDate.Year.ToString();
+                hour = hourTime2.SelectedItem.Value.ToString();
+                minute = minuteTime2.SelectedItem.Value.ToString();
+                ampm = AMPM2.SelectedItem.Value.ToString();
 
                 dropDownEvents.Items.Clear();
-                hourTime.Items.Clear();
-                minuteTime.Items.Clear();
-                dropDownLocations.Items.Clear();
+                hourTime2.Items.Clear();
+                minuteTime2.Items.Clear();
+                dropDownLocations2.Items.Clear();
             }
 
             populateEvents();
@@ -40,13 +36,13 @@ namespace WebApplication1
             populateMinuteAndHours();
         }
 
-        public void editEvent(object sender, EventArgs e)
+        public void editEvent2(object sender, EventArgs e)
         {
             try
             {
                 String evName = eventName.Text;
-                String evDesc = editDesc.Text;
-               
+                String evDesc = editDesc2.Text;
+
 
                 String finalString = month.Trim() + "/" + date.Trim() + "/" + year.Trim()
                    + " " + hour.Trim() + ":" + minute.Trim() + " " + ampm.Trim();
@@ -75,7 +71,7 @@ namespace WebApplication1
                 conn.Close();
 
                 dropDownEvents.Items.Clear();
-                dropDownLocations.Items.Clear();
+                dropDownLocations2.Items.Clear();
                 populateEvents();
                 populateLocations();
                 ClientScript.RegisterStartupScript(GetType(), "myalert", "alert('You edited an event successfully');", true);
@@ -90,7 +86,7 @@ namespace WebApplication1
         {
             for (int i = 1; i < 13; i++)
             {
-                hourTime.Items.Add(new ListItem(i.ToString(), i.ToString()));
+                hourTime2.Items.Add(new ListItem(i.ToString(), i.ToString()));
             }
             for (int j = 0; j < 60; j++)
             {
@@ -103,13 +99,13 @@ namespace WebApplication1
                 {
                     temp = j.ToString();
                 }
-                minuteTime.Items.Add(new ListItem(temp, temp));
+                minuteTime2.Items.Add(new ListItem(temp, temp));
             }
         }
 
         public void populateLocations()
         {
-            dropDownLocations.Items.Add(new ListItem("None", "-1"));
+            dropDownLocations2.Items.Add(new ListItem("None", "-1"));
             String connString = ConfigurationManager.AppSettings["connectionInfo"];
             SqlConnection con = new SqlConnection(connString);
             con.Open();
@@ -118,10 +114,10 @@ namespace WebApplication1
             cmd2.CommandType = CommandType.StoredProcedure;
             SqlDataReader reader = cmd2.ExecuteReader();
 
-            dropDownLocations.DataSource = reader;
-            dropDownLocations.DataValueField = "lid";
-            dropDownLocations.DataTextField = "name";
-            dropDownLocations.DataBind();
+            dropDownLocations2.DataSource = reader;
+            dropDownLocations2.DataValueField = "lid";
+            dropDownLocations2.DataTextField = "name";
+            dropDownLocations2.DataBind();
             con.Close();
         }
 

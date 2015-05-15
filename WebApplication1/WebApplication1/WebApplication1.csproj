@@ -181,6 +181,9 @@
     <Content Include="Account\Web.config" />
     <Content Include="RegisterOrganization.aspx" />
     <Content Include="RemoveEvent.aspx" />
+    <Content Include="RemoveEventOrgSelect.aspx" />
+    <Content Include="RemoveOrganization.aspx" />
+    <Content Include="RequestRepresentation.aspx" />
     <Content Include="WelcomeUser.aspx" />
     <None Include="Scripts\jquery-1.10.2.intellisense.js" />
     <Content Include="RegisterUser.aspx" />
@@ -421,6 +424,27 @@
     </Compile>
     <Compile Include="RemoveEvent.aspx.designer.cs">
       <DependentUpon>RemoveEvent.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="RemoveEventOrgSelect.aspx.cs">
+      <DependentUpon>RemoveEventOrgSelect.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="RemoveEventOrgSelect.aspx.designer.cs">
+      <DependentUpon>RemoveEventOrgSelect.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="RemoveOrganization.aspx.cs">
+      <DependentUpon>RemoveOrganization.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="RemoveOrganization.aspx.designer.cs">
+      <DependentUpon>RemoveOrganization.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="RequestRepresentation.aspx.cs">
+      <DependentUpon>RequestRepresentation.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="RequestRepresentation.aspx.designer.cs">
+      <DependentUpon>RequestRepresentation.aspx</DependentUpon>
     </Compile>
     <Compile Include="Site.Master.cs">
       <DependentUpon>Site.Master</DependentUpon>

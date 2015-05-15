@@ -10,24 +10,24 @@
 namespace WebApplication1 {
     
     
-    public partial class RemoveEvent {
+    public partial class RemoveOrganization {
         
         /// <summary>
-        /// dropDownEvents control.
+        /// dropDownOrgs control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.DropDownList dropDownEvents;
+        protected global::System.Web.UI.WebControls.DropDownList dropDownOrgs;
         
         /// <summary>
-        /// eventSelectBtn control.
+        /// orgSelectBtn control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Button eventSelectBtn;
+        protected global::System.Web.UI.WebControls.Button orgSelectBtn;
     }
 }

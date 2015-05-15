@@ -22,13 +22,13 @@ namespace WebApplication1 {
         protected global::System.Web.UI.WebControls.DropDownList dropDownEvents;
         
         /// <summary>
-        /// rfl1 control.
+        /// rfl2 control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.RequiredFieldValidator rfl1;
+        protected global::System.Web.UI.WebControls.RequiredFieldValidator rfl2;
         
         /// <summary>
         /// eventName control.
@@ -40,66 +40,66 @@ namespace WebApplication1 {
         protected global::System.Web.UI.WebControls.TextBox eventName;
         
         /// <summary>
-        /// editDesc control.
+        /// editDesc2 control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox editDesc;
+        protected global::System.Web.UI.WebControls.TextBox editDesc2;
         
         /// <summary>
-        /// calender1 control.
+        /// calender2 control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Calendar calender1;
+        protected global::System.Web.UI.WebControls.Calendar calender2;
         
         /// <summary>
-        /// hourTime control.
+        /// hourTime2 control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.DropDownList hourTime;
+        protected global::System.Web.UI.WebControls.DropDownList hourTime2;
         
         /// <summary>
-        /// minuteTime control.
+        /// minuteTime2 control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.DropDownList minuteTime;
+        protected global::System.Web.UI.WebControls.DropDownList minuteTime2;
         
         /// <summary>
-        /// AMPM control.
+        /// AMPM2 control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.DropDownList AMPM;
+        protected global::System.Web.UI.WebControls.DropDownList AMPM2;
         
         /// <summary>
-        /// dropDownLocations control.
+        /// dropDownLocations2 control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.DropDownList dropDownLocations;
+        protected global::System.Web.UI.WebControls.DropDownList dropDownLocations2;
         
         /// <summary>
-        /// editEventBtn control.
+        /// editEventBtn2 control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Button editEventBtn;
+        protected global::System.Web.UI.WebControls.Button editEventBtn2;
     }
 }

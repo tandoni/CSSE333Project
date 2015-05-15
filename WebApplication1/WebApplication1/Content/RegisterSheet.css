@@ -231,7 +231,7 @@ input[type=password] {
     display: inline-block;
     float: right;
     text-decoration: none;
-    width: 90px;
+    width: auto;
     height: 27px;
     -webkit-border-radius: 5px;
     -moz-border-radius: 5px;
