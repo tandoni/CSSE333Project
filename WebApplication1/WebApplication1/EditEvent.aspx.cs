@@ -12,10 +12,23 @@ namespace WebApplication1
 {
     public partial class EditEvent : System.Web.UI.Page
     {
+        public String date;
+        public String month;
+        public String year;
+        public String hour;
+        public String minute;
+        public String ampm;
         protected void Page_Load(object sender, EventArgs e)
         {
-            if (!IsPostBack)
+            if (IsPostBack)
             {
+                date = calender1.SelectedDate.Day.ToString();
+                month = calender1.SelectedDate.Month.ToString();
+                year = calender1.SelectedDate.Year.ToString();
+                hour = hourTime.SelectedItem.Value.ToString();
+                minute = minuteTime.SelectedItem.Value.ToString();
+                ampm = AMPM.SelectedItem.Value.ToString();
+
                 dropDownEvents.Items.Clear();
                 hourTime.Items.Clear();
                 minuteTime.Items.Clear();
@@ -33,12 +46,7 @@ namespace WebApplication1
             {
                 String evName = eventName.Text;
                 String evDesc = editDesc.Text;
-                String date = calender1.SelectedDate.Day.ToString();
-                String month = calender1.SelectedDate.Month.ToString();
-                String year = calender1.SelectedDate.Year.ToString();
-                String hour = hourTime.SelectedItem.Value.ToString();
-                String minute = minuteTime.SelectedItem.Value.ToString();
-                String ampm = AMPM.SelectedItem.Value.ToString();
+               
 
                 String finalString = month.Trim() + "/" + date.Trim() + "/" + year.Trim()
                    + " " + hour.Trim() + ":" + minute.Trim() + " " + ampm.Trim();

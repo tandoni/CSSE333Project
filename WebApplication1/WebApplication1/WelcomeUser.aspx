@@ -7,7 +7,7 @@
     <title></title>
 </head>
 <body>
-    <h1>WELCOME!</h1>
+    <h1>WELCOME <asp:Label runat="server" ID="userLabel"></asp:Label>... :)</h1>
     <a href="RegisterOrganization.aspx">Register an Organization</a>
     <a href="EventPage.aspx">Add an Event</a>
     <a href="EditOrganization.aspx">Edit an Organization</a>

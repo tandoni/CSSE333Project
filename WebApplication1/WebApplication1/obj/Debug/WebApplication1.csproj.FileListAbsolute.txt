@@ -99,6 +99,5 @@ C:\Users\tandoni\Google Drive\DATABASE PROJECT\WebApplication1\WebApplication1\b
 C:\Users\tandoni\Google Drive\DATABASE PROJECT\WebApplication1\WebApplication1\bin\Microsoft.Owin.Security.Twitter.xml
 C:\Users\tandoni\Google Drive\DATABASE PROJECT\WebApplication1\WebApplication1\bin\Microsoft.Owin.Security.MicrosoftAccount.xml
 C:\Users\tandoni\Google Drive\DATABASE PROJECT\WebApplication1\WebApplication1\bin\Microsoft.Owin.Security.OAuth.xml
-C:\Users\tandoni\Google Drive\DATABASE PROJECT\WebApplication1\WebApplication1\obj\Debug\WebApplication1.csprojResolveAssemblyReference.cache
 C:\Users\tandoni\Google Drive\DATABASE PROJECT\WebApplication1\WebApplication1\obj\Debug\WebApplication1.dll
 C:\Users\tandoni\Google Drive\DATABASE PROJECT\WebApplication1\WebApplication1\obj\Debug\WebApplication1.pdb
