@@ -1,4 +1,4 @@
-﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="RequestRepresentation.aspx.cs" Inherits="WebApplication1.RequestRepresentation" %>
+﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="BranchAdd.aspx.cs" Inherits="WebApplication1.BranchAdd" %>
 
 <!DOCTYPE html>
 
@@ -10,15 +10,15 @@
 </head>
 <body>
     <div class="eventbox">
-        <h1>Select an Organization</h1>
+        <h1>New Branch</h1>
 
         <form runat="server">
             <hr />
             <div id="editOrgBox">
-                <asp:DropDownList AppendDataBoundItems="true" ID="dropDownOrgs" runat="server">
+                <asp:DropDownList AppendDataBoundItems="true" ID="dropDownLocations" runat="server">
                 </asp:DropDownList>
                 <br />
-                <asp:Button runat="server" OnClick="selectOrg" ID="orgSelectBtn" CssClass="button" Text="Request Representation" />
+                <asp:Button runat="server" OnClick="selectLoc" ID="locSelectBtn" CssClass="button" Text="Register a Branch" />
                 <a href="WelcomeUser.aspx">Go Back</a>
             </div>
         </form>

@@ -10,24 +10,33 @@
 namespace WebApplication1 {
     
     
-    public partial class WebForm1 {
+    public partial class ManageOrgSelect {
         
         /// <summary>
-        /// logoutBtn control.
+        /// dropDownOrgs control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Button logoutBtn;
+        protected global::System.Web.UI.WebControls.DropDownList dropDownOrgs;
         
         /// <summary>
-        /// userLabel control.
+        /// rfl1 control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label userLabel;
+        protected global::System.Web.UI.WebControls.RequiredFieldValidator rfl1;
+        
+        /// <summary>
+        /// orgSelectBtn control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Button orgSelectBtn;
     }
 }

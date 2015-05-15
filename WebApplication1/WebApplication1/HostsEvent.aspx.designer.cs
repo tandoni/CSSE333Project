@@ -10,24 +10,33 @@
 namespace WebApplication1 {
     
     
-    public partial class WebForm1 {
+    public partial class HostsEvent {
         
         /// <summary>
-        /// logoutBtn control.
+        /// dropDownEvents control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Button logoutBtn;
+        protected global::System.Web.UI.WebControls.DropDownList dropDownEvents;
         
         /// <summary>
-        /// userLabel control.
+        /// dropDownOrgs control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label userLabel;
+        protected global::System.Web.UI.WebControls.DropDownList dropDownOrgs;
+        
+        /// <summary>
+        /// host control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Button host;
     }
 }

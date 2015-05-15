@@ -1,4 +1,4 @@
-﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="RequestRepresentation.aspx.cs" Inherits="WebApplication1.RequestRepresentation" %>
+﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="ManageOrgSelect.aspx.cs" Inherits="WebApplication1.ManageOrgSelect" %>
 
 <!DOCTYPE html>
 
@@ -17,9 +17,10 @@
             <div id="editOrgBox">
                 <asp:DropDownList AppendDataBoundItems="true" ID="dropDownOrgs" runat="server">
                 </asp:DropDownList>
+                <asp:RequiredFieldValidator runat="server" ID="rfl1" ValidationGroup="selectOrg" ControlToValidate="dropDownOrgs" ErrorMessage="Please select an Organization" InitialValue="--Select an Organization--"></asp:RequiredFieldValidator>
                 <br />
-                <asp:Button runat="server" OnClick="selectOrg" ID="orgSelectBtn" CssClass="button" Text="Request Representation" />
-                <a href="WelcomeUser.aspx">Go Back</a>
+                <asp:Button runat="server" OnClick="selectOrg" ValidationGroup="selectOrg" ID="orgSelectBtn" CssClass="button" Text="Submit" />
+                <a href="WelcomeUser.aspx" style="top: 500px;">Go Back</a>
             </div>
         </form>
     </div>

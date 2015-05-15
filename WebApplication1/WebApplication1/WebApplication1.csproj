@@ -147,6 +147,10 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="About.aspx" />
+    <Content Include="AcceptMemberRequest.aspx" />
+    <Content Include="AcceptMemberRequestOrgSelect.aspx" />
+    <Content Include="AcceptRequest.aspx" />
+    <Content Include="AcceptRequestOrgSelect.aspx" />
     <Content Include="Account\AddPhoneNumber.aspx" />
     <Content Include="Account\Confirm.aspx" />
     <Content Include="Account\Forgot.aspx" />
@@ -162,6 +166,9 @@
     <Content Include="Account\ResetPasswordConfirmation.aspx" />
     <Content Include="Account\TwoFactorAuthenticationSignIn.aspx" />
     <Content Include="Account\VerifyPhoneNumber.aspx" />
+    <Content Include="AttendsEvent.aspx" />
+    <Content Include="BranchAdd.aspx" />
+    <Content Include="BranchOrgSelect.aspx" />
     <Content Include="Contact.aspx" />
     <Content Include="Content\bootstrap.css" />
     <Content Include="Content\bootstrap.min.css" />
@@ -171,19 +178,31 @@
     <Content Include="EditEvent.aspx" />
     <Content Include="EditEventOrgSelect.aspx" />
     <Content Include="EditOrganization.aspx" />
+    <Content Include="EndorsesOtherOrg.aspx" />
+    <Content Include="EndorsesSelectOrg.aspx" />
     <Content Include="EventPage.aspx" />
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
+    <Content Include="HostsEvent.aspx" />
+    <Content Include="HostsOrgSelect.aspx" />
     <Content Include="LoginPage.aspx" />
+    <Content Include="ManageEvent.aspx" />
+    <Content Include="ManageOrgSelect.aspx" />
     <Content Include="packages.config" />
     <Content Include="fonts\glyphicons-halflings-regular.woff" />
     <Content Include="fonts\glyphicons-halflings-regular.ttf" />
     <Content Include="fonts\glyphicons-halflings-regular.eot" />
     <Content Include="Account\Web.config" />
+    <Content Include="Rates.aspx" />
     <Content Include="RegisterOrganization.aspx" />
     <Content Include="RemoveEvent.aspx" />
     <Content Include="RemoveEventOrgSelect.aspx" />
     <Content Include="RemoveOrganization.aspx" />
+    <Content Include="RequestMemberOrgSelect.aspx" />
     <Content Include="RequestRepresentation.aspx" />
+    <Content Include="SearchEventResults.aspx" />
+    <Content Include="SearchEventsEventSelect.aspx" />
+    <Content Include="SearchOrgResults.aspx" />
+    <Content Include="SearchOrgsOrgSelect.aspx" />
     <Content Include="WelcomeUser.aspx" />
     <None Include="Scripts\jquery-1.10.2.intellisense.js" />
     <Content Include="RegisterUser.aspx" />
@@ -234,6 +253,34 @@
     </None>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="AcceptMemberRequest.aspx.cs">
+      <DependentUpon>AcceptMemberRequest.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="AcceptMemberRequest.aspx.designer.cs">
+      <DependentUpon>AcceptMemberRequest.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="AcceptMemberRequestOrgSelect.aspx.cs">
+      <DependentUpon>AcceptMemberRequestOrgSelect.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="AcceptMemberRequestOrgSelect.aspx.designer.cs">
+      <DependentUpon>AcceptMemberRequestOrgSelect.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="AcceptRequest.aspx.cs">
+      <DependentUpon>AcceptRequest.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="AcceptRequest.aspx.designer.cs">
+      <DependentUpon>AcceptRequest.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="AcceptRequestOrgSelect.aspx.cs">
+      <DependentUpon>AcceptRequestOrgSelect.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="AcceptRequestOrgSelect.aspx.designer.cs">
+      <DependentUpon>AcceptRequestOrgSelect.aspx</DependentUpon>
+    </Compile>
     <Compile Include="Account\AddPhoneNumber.aspx.cs">
       <DependentUpon>AddPhoneNumber.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -350,6 +397,27 @@
     <Compile Include="App_Start\IdentityConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="App_Start\Startup.Auth.cs" />
+    <Compile Include="AttendsEvent.aspx.cs">
+      <DependentUpon>AttendsEvent.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="AttendsEvent.aspx.designer.cs">
+      <DependentUpon>AttendsEvent.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="BranchAdd.aspx.cs">
+      <DependentUpon>BranchAdd.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="BranchAdd.aspx.designer.cs">
+      <DependentUpon>BranchAdd.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="BranchOrgSelect.aspx.cs">
+      <DependentUpon>BranchOrgSelect.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="BranchOrgSelect.aspx.designer.cs">
+      <DependentUpon>BranchOrgSelect.aspx</DependentUpon>
+    </Compile>
     <Compile Include="Contact.aspx.cs">
       <DependentUpon>Contact.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -385,6 +453,20 @@
     <Compile Include="EditOrganization.aspx.designer.cs">
       <DependentUpon>EditOrganization.aspx</DependentUpon>
     </Compile>
+    <Compile Include="EndorsesOtherOrg.aspx.cs">
+      <DependentUpon>EndorsesOtherOrg.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="EndorsesOtherOrg.aspx.designer.cs">
+      <DependentUpon>EndorsesOtherOrg.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="EndorsesSelectOrg.aspx.cs">
+      <DependentUpon>EndorsesSelectOrg.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="EndorsesSelectOrg.aspx.designer.cs">
+      <DependentUpon>EndorsesSelectOrg.aspx</DependentUpon>
+    </Compile>
     <Compile Include="EventPage.aspx.cs">
       <DependentUpon>EventPage.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -395,6 +477,20 @@
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
+    <Compile Include="HostsEvent.aspx.cs">
+      <DependentUpon>HostsEvent.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="HostsEvent.aspx.designer.cs">
+      <DependentUpon>HostsEvent.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="HostsOrgSelect.aspx.cs">
+      <DependentUpon>HostsOrgSelect.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="HostsOrgSelect.aspx.designer.cs">
+      <DependentUpon>HostsOrgSelect.aspx</DependentUpon>
+    </Compile>
     <Compile Include="LoginPage.aspx.cs">
       <DependentUpon>LoginPage.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -402,8 +498,29 @@
     <Compile Include="LoginPage.aspx.designer.cs">
       <DependentUpon>LoginPage.aspx</DependentUpon>
     </Compile>
+    <Compile Include="ManageEvent.aspx.cs">
+      <DependentUpon>ManageEvent.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="ManageEvent.aspx.designer.cs">
+      <DependentUpon>ManageEvent.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="ManageOrgSelect.aspx.cs">
+      <DependentUpon>ManageOrgSelect.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="ManageOrgSelect.aspx.designer.cs">
+      <DependentUpon>ManageOrgSelect.aspx</DependentUpon>
+    </Compile>
     <Compile Include="Models\IdentityModels.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Rates.aspx.cs">
+      <DependentUpon>Rates.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Rates.aspx.designer.cs">
+      <DependentUpon>Rates.aspx</DependentUpon>
+    </Compile>
     <Compile Include="RegisterOrganization.aspx.cs">
       <DependentUpon>RegisterOrganization.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -439,12 +556,47 @@
     <Compile Include="RemoveOrganization.aspx.designer.cs">
       <DependentUpon>RemoveOrganization.aspx</DependentUpon>
     </Compile>
+    <Compile Include="RequestMemberOrgSelect.aspx.cs">
+      <DependentUpon>RequestMemberOrgSelect.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="RequestMemberOrgSelect.aspx.designer.cs">
+      <DependentUpon>RequestMemberOrgSelect.aspx</DependentUpon>
+    </Compile>
     <Compile Include="RequestRepresentation.aspx.cs">
       <DependentUpon>RequestRepresentation.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
     <Compile Include="RequestRepresentation.aspx.designer.cs">
       <DependentUpon>RequestRepresentation.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="SearchEventResults.aspx.cs">
+      <DependentUpon>SearchEventResults.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="SearchEventResults.aspx.designer.cs">
+      <DependentUpon>SearchEventResults.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="SearchEventsEventSelect.aspx.cs">
+      <DependentUpon>SearchEventsEventSelect.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="SearchEventsEventSelect.aspx.designer.cs">
+      <DependentUpon>SearchEventsEventSelect.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="SearchOrgResults.aspx.cs">
+      <DependentUpon>SearchOrgResults.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="SearchOrgResults.aspx.designer.cs">
+      <DependentUpon>SearchOrgResults.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="SearchOrgsOrgSelect.aspx.cs">
+      <DependentUpon>SearchOrgsOrgSelect.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="SearchOrgsOrgSelect.aspx.designer.cs">
+      <DependentUpon>SearchOrgsOrgSelect.aspx</DependentUpon>
     </Compile>
     <Compile Include="Site.Master.cs">
       <DependentUpon>Site.Master</DependentUpon>

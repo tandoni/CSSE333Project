@@ -1,4 +1,4 @@
-﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="RequestRepresentation.aspx.cs" Inherits="WebApplication1.RequestRepresentation" %>
+﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="HostsEvent.aspx.cs" Inherits="WebApplication1.HostsEvent" %>
 
 <!DOCTYPE html>
 
@@ -10,15 +10,17 @@
 </head>
 <body>
     <div class="eventbox">
-        <h1>Select an Organization</h1>
+        <h1>Select an event to host</h1>
 
         <form runat="server">
             <hr />
             <div id="editOrgBox">
+                <asp:DropDownList AppendDataBoundItems="true" ID="dropDownEvents" runat="server">
+                </asp:DropDownList>
                 <asp:DropDownList AppendDataBoundItems="true" ID="dropDownOrgs" runat="server">
                 </asp:DropDownList>
                 <br />
-                <asp:Button runat="server" OnClick="selectOrg" ID="orgSelectBtn" CssClass="button" Text="Request Representation" />
+                <asp:Button runat="server" OnClick="hostEvent" ID="host" CssClass="button" Text="Host this event" />
                 <a href="WelcomeUser.aspx">Go Back</a>
             </div>
         </form>

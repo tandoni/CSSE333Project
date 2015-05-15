@@ -228,10 +228,10 @@ input[type=password] {
     color: white;
     /*padding: 6px 10px 0px 20px;*/
     margin: 10px 8px 20px 0px;
-    display: inline-block;
+    /*display: inline-block;*/
     float: right;
-    text-decoration: none;
-    width: auto;
+    text-decoration:none;
+    width: 200px;
     height: 27px;
     -webkit-border-radius: 5px;
     -moz-border-radius: 5px;

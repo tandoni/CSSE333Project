@@ -13,5 +13,12 @@ namespace WebApplication1
         {
             userLabel.Text = Session["UserName"].ToString();
         }
+
+        public void logout(object sender, EventArgs e)
+        {
+            Session["UserName"] = "";
+            Session["Password"] = "";
+            Response.Redirect("LoginPage.aspx");
+        }
     }
 }

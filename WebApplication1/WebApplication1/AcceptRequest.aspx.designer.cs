@@ -10,24 +10,24 @@
 namespace WebApplication1 {
     
     
-    public partial class WebForm1 {
+    public partial class AcceptRequest {
         
         /// <summary>
-        /// logoutBtn control.
+        /// dropDownNames control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Button logoutBtn;
+        protected global::System.Web.UI.WebControls.DropDownList dropDownNames;
         
         /// <summary>
-        /// userLabel control.
+        /// userSelectBtn control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label userLabel;
+        protected global::System.Web.UI.WebControls.Button userSelectBtn;
     }
 }

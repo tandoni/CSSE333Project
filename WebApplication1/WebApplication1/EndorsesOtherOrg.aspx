@@ -1,4 +1,4 @@
-﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="RequestRepresentation.aspx.cs" Inherits="WebApplication1.RequestRepresentation" %>
+﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="EndorsesOtherOrg.aspx.cs" Inherits="WebApplication1.EndorsesOtherOrg" %>
 
 <!DOCTYPE html>
 
@@ -10,7 +10,7 @@
 </head>
 <body>
     <div class="eventbox">
-        <h1>Select an Organization</h1>
+        <h1>Select Organization</h1>
 
         <form runat="server">
             <hr />
@@ -18,7 +18,9 @@
                 <asp:DropDownList AppendDataBoundItems="true" ID="dropDownOrgs" runat="server">
                 </asp:DropDownList>
                 <br />
-                <asp:Button runat="server" OnClick="selectOrg" ID="orgSelectBtn" CssClass="button" Text="Request Representation" />
+                <asp:TextBox ID="endDesc" runat="server" placeholder="Description"></asp:TextBox>
+                <br />
+                <asp:Button runat="server" OnClick="endorse" ID="orgSelectBtn" CssClass="button" Text="Endorse This!" />
                 <a href="WelcomeUser.aspx">Go Back</a>
             </div>
         </form>
