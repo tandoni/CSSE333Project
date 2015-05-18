@@ -7,18 +7,11 @@ using System.Web.UI.WebControls;
 
 namespace WebApplication1
 {
-    public partial class WebForm1 : System.Web.UI.Page
+    public partial class Training : System.Web.UI.Page
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-
-        }
-
-        public void logout(object sender, EventArgs e)
-        {
-            Session["UserName"] = "";
-            Session["Password"] = "";
-            Response.Redirect("LoginPage.aspx");
+            
         }
     }
 }

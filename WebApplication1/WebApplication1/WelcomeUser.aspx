@@ -1,16 +1,8 @@
-﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="WelcomeUser.aspx.cs" Inherits="WebApplication1.WebForm1" %>
+﻿<%@ Page Language="C#" MasterPageFile="~/Site1.Master" AutoEventWireup="true" CodeBehind="WelcomeUser.aspx.cs" Inherits="WebApplication1.WebForm1" %>
 
-<!DOCTYPE html>
 
-<html xmlns="http://www.w3.org/1999/xhtml">
-<head runat="server">
-    <title></title>
-    <form runat="server">
-        <asp:Button CssClass="button" Text="Logout" runat="server" ID="logoutBtn" OnClick="logout" style="float: right" />
-    </form>
-</head>
-<body>
-    <h1>WELCOME
+<asp:Content ID="content1" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
+    <h1 style="margin-top:300px;">WELCOME
         <asp:Label runat="server" ID="userLabel"></asp:Label>... :)</h1>
     <table border="1">
         <tr>
@@ -44,5 +36,4 @@
             <td></td>
         </tr>
     </table>
-</body>
-</html>
+</asp:Content>

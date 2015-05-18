@@ -1,0 +1,76 @@
+﻿<%@ Master Language="C#" AutoEventWireup="true" CodeBehind="Site1.master.cs" Inherits="WebApplication1.Site1" %>
+
+<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head runat="server">
+    <title></title>
+    <asp:ContentPlaceHolder ID="head" runat="server">
+        <link href='Content/RegisterSheet.css' rel='stylesheet' type='text/css' />
+        <link href="http://netdna.bootstrapcdn.com/font-awesome/3.1.1/css/font-awesome.css" rel="stylesheet" />
+        <link href="Content/bootstrap.css" rel="stylesheet" type="text/css" />
+        <script type="text/javascript">
+            function work1() {
+                var e = document.getElementById("dropDownEvents");
+                var strUser = e.options[e.selectedIndex].text;
+                var e1 = document.getElementById("eventName");
+                e1.value = strUser;
+            };
+            function work2() {
+                var e = document.getElementById("dropDownOrgs");
+                var strUser = e.options[e.selectedIndex].text;
+                var e1 = document.getElementById("orgName");
+                e1.innerText = strUser;
+            };
+        </script>
+    </asp:ContentPlaceHolder>
+</head>
+<body>
+    <form runat="server">
+
+        <div class="navbar navbar-inverse navbar-fixed-top">
+            <div class="container">
+                <div class="navbar-header">
+                    <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                    </button>
+                    <a class="navbar-brand" runat="server" href="~/WelcomeUser.aspx">Universal Planner</a>
+                </div>
+                <div class="navbar-collapse collapse">
+                    <ul class="nav navbar-nav">
+                        <li><a runat="server" href="~/RegisterOrganization.aspx">Register Organization</a></li>
+                        <li><a runat="server" href="~/EventPage.aspx">Add Event</a></li>
+                        <li><a runat="server" href="~/EditOrganization.aspx">Edit Organization</a></li>
+                        <li><a runat="server" href="~/EditEventOrgSelect.aspx">Edit Event</a></li>
+                        <li><a runat="server" href="~/RemoveOrganization.aspx">Remove Organization</a></li>
+                        <li><a runat="server" href="~/RemoveEventOrgSelect.aspx">Remove Event</a></li>
+                        <li><a runat="server" href="~/RequestRepresentation.aspx">Request Representation</a></li>
+                        <li><a runat="server" href="~/AcceptRequestOrgSelect.aspx">Accept Representation Request</a></li>
+                        <li><a runat="server" href="~/RequestMemberorgSelect.aspx">Request Membership</a></li>
+                        <li><a runat="server" href="~/AcceptMemberRequestOrgSelect.aspx">Accept Membership Request</a></li>
+                        <li><a runat="server" href="~/HostsOrgSelect.aspx">Host Event</a></li>
+                        <li><a runat="server" href="~/BranchOrgSelect.aspx">Add Branch</a></li>
+                        <li><a runat="server" href="~/EndorsesSelectOrg.aspx">Endorse Organization</a></li>
+                        <li><a runat="server" href="~/Rates.aspx">Rate Event</a></li>
+                        <li><a runat="server" href="~/AttendsEvent.aspx">Attend Event</a></li>
+                        <li><a runat="server" href="~/ManageOrgSelect.aspx">Manage Event</a></li>
+                    </ul>
+                    <ul class="nav navbar-nav navbar-right">
+                        <asp:Button Text="Logout" runat="server" ID="logoutBtn" OnClick="logout" />
+                    </ul>
+                </div>
+            </div>
+        </div>
+        <div class="container body-content">
+            <asp:ContentPlaceHolder ID="ContentPlaceHolder1" runat="server">
+            </asp:ContentPlaceHolder>
+            <hr />
+            <footer>
+                <p>&copy; Ishank & Jared :p</p>
+            </footer>
+        </div>
+    </form>
+</body>
+</html>

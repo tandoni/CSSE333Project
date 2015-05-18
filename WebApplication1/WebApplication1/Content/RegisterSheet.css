@@ -25,6 +25,16 @@ select {
     color: #4c4c4c;
 }
 
+#logoutBtn {
+    color:#999999;
+    text-decoration:none;
+    background-color:#333333;
+    border:none;
+    font-family:"helvetica Neue, Helvetica, Arial, sans-serif";
+    font-size:20px;
+    text-align: -webkit-match-parent;
+}
+
 #dropDownLocations {
     display: block;
     width: auto;
@@ -92,7 +102,7 @@ html {
 }
 
 .testbox {
-    margin: 20px auto;
+    margin: 350px auto;
     width: 343px;
     height: 464px;
     -webkit-border-radius: 8px/7px;
@@ -106,7 +116,7 @@ html {
 }
 
 .eventbox, .editOrgBox {
-    margin: 20px auto;
+    margin: 350px auto;
     width: 343px;
     height: 600px;
     -webkit-border-radius: 8px/7px;
@@ -230,7 +240,7 @@ input[type=password] {
     margin: 10px 8px 20px 0px;
     /*display: inline-block;*/
     float: right;
-    text-decoration:none;
+    text-decoration: none;
     width: 200px;
     height: 27px;
     -webkit-border-radius: 5px;
