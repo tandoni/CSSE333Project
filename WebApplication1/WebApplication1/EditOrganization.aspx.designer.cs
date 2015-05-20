@@ -13,24 +13,6 @@ namespace WebApplication1 {
     public partial class EditOrganization {
         
         /// <summary>
-        /// dropDownOrgs control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.DropDownList dropDownOrgs;
-        
-        /// <summary>
-        /// rfl1 control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.RequiredFieldValidator rfl1;
-        
-        /// <summary>
         /// editUrl control.
         /// </summary>
         /// <remarks>

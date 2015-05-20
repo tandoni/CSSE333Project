@@ -7,9 +7,6 @@
 
         <hr />
         <div id="editOrgBox">
-            <asp:DropDownList ClientIDMode="Static" onclick="work2()" AppendDataBoundItems="true" ID="dropDownOrgs" runat="server">
-            </asp:DropDownList>
-            <asp:RequiredFieldValidator runat="server" ID="rfl1" ControlToValidate="dropDownOrgs" ErrorMessage="Please select an Organization" InitialValue="--Select an Organization--"></asp:RequiredFieldValidator>
             <br />
             <%--<label id="icon" for="name"><i class="icon-user"></i></label>--%>
             <%--<asp:Label BackColor="Gray" runat="server" ID="orgName" placeholder="Organiazation Name" />--%>

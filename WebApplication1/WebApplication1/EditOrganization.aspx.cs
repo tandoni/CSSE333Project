@@ -17,36 +17,8 @@ namespace WebApplication1
         protected void Page_Load(object sender, EventArgs e)
         {
             populateLocations();
-            populateOrgs();
             populatePartOfOrgs();
-        }
-
-        public void populateOrgs()
-        {
-            dropDownOrgs.Items.Add(new ListItem("--Select an Organization--", "-1", true));
-            String connString = ConfigurationManager.AppSettings["connectionInfo"];
-            SqlConnection con = new SqlConnection(connString);
-            con.Open();
-            String commType2 = "myOrganizations";
-            SqlCommand cmd2 = new SqlCommand(commType2, con);
-            cmd2.CommandType = CommandType.StoredProcedure;
-
-            string userName = Session["UserName"].ToString();
-            string password = Session["Password"].ToString();
-
-            cmd2.Parameters.Add("@uname", SqlDbType.VarChar).Value = userName;
-            cmd2.Parameters.Add("@pwd", SqlDbType.VarChar).Value = password;
-
-            SqlDataReader reader = cmd2.ExecuteReader();
-
-            dropDownOrgs.DataSource = reader;
-            dropDownOrgs.DataValueField = "name";
-            dropDownOrgs.DataTextField = "name";
-            dropDownOrgs.DataBind();
-
-            //ListItem itemToRemove = dropDownPartOfOther.Items.FindByValue("")
-
-            con.Close();
+            defaultOrgData();
         }
 
         public void populatePartOfOrgs()
@@ -99,73 +71,58 @@ namespace WebApplication1
         {
             try
             {
-                if (dropDownOrgs.SelectedItem.Text.ToString().Equals(dropDownPartOfOther.SelectedItem.Text.ToString()))
-                {
-                    ClientScript.RegisterStartupScript(GetType(), "myalert", "alert('Error: Organization cannot be part of itself.');", true);
-                }
-                else if(dropDownOrgs.SelectedItem.Value.ToString().Equals("-1"))
-                {
-                    ClientScript.RegisterStartupScript(GetType(), "myalert", "alert('Error: Please select an organization.');", true);
-                }
-                else
-                {
-                    String connString = ConfigurationManager.AppSettings["connectionInfo"];
-                    SqlConnection con = new SqlConnection(connString);
 
-                    String editedWebpage = editUrl.Text;
-                    String editedDesc = editDesc.Text;
+                String connString = ConfigurationManager.AppSettings["connectionInfo"];
+                SqlConnection con = new SqlConnection(connString);
 
-                    String commType2 = "editOrganization";
-                    SqlCommand cmd2 = new SqlCommand(commType2, con);
-                    cmd2.CommandType = CommandType.StoredProcedure;
+                String editedWebpage = editUrl.Text;
+                String editedDesc = editDesc.Text;
 
-                    string userName = Session["UserName"].ToString();
-                    string password = Session["Password"].ToString();
+                String commType2 = "editOrganization";
+                SqlCommand cmd2 = new SqlCommand(commType2, con);
+                cmd2.CommandType = CommandType.StoredProcedure;
 
-                    cmd2.Parameters.Add("@uname", SqlDbType.VarChar).Value = userName;
-                    cmd2.Parameters.Add("@pwd", SqlDbType.VarChar).Value = password;
-                    cmd2.Parameters.Add("@name", SqlDbType.VarChar).Value = dropDownOrgs.SelectedItem.Value.ToString();
-                    cmd2.Parameters.Add("@webpage", SqlDbType.VarChar).Value = editedWebpage;
-                    cmd2.Parameters.Add("@description", SqlDbType.VarChar).Value = editedDesc;
-                    cmd2.Parameters.Add("@lid", SqlDbType.Int).Value = Convert.ToInt32(dropDownLocations.SelectedItem.Value);
-                    cmd2.Parameters.Add("@name2", SqlDbType.VarChar).Value = dropDownPartOfOther.SelectedItem.Value.ToString();
-                    con.Open();
-                    cmd2.ExecuteNonQuery();
-                    con.Close();
+                string userName = Session["UserName"].ToString();
+                string password = Session["Password"].ToString();
 
-                    ClientScript.RegisterStartupScript(GetType(), "myalert", "alert('You edited an organization successfully');", true);
-                }
+                cmd2.Parameters.Add("@uname", SqlDbType.VarChar).Value = userName;
+                cmd2.Parameters.Add("@pwd", SqlDbType.VarChar).Value = password;
+                cmd2.Parameters.Add("@name", SqlDbType.VarChar).Value = Session["EditOrganizationSelect"].ToString();
+                cmd2.Parameters.Add("@webpage", SqlDbType.VarChar).Value = editedWebpage;
+                cmd2.Parameters.Add("@description", SqlDbType.VarChar).Value = editedDesc;
+                cmd2.Parameters.Add("@lid", SqlDbType.Int).Value = Convert.ToInt32(dropDownLocations.SelectedItem.Value);
+                cmd2.Parameters.Add("@name2", SqlDbType.VarChar).Value = dropDownPartOfOther.SelectedItem.Value.ToString();
+                con.Open();
+                cmd2.ExecuteNonQuery();
+                con.Close();
+
+                ClientScript.RegisterStartupScript(GetType(), "myalert", "alert('You edited an organization successfully');", true);
+
             }
             catch (Exception ex)
             {
-                ClientScript.RegisterStartupScript(GetType(), "myalert", "alert('"+ex.Message+"');", true);
+                ClientScript.RegisterStartupScript(GetType(), "myalert", "alert('" + ex.Message + "');", true);
 
                 //ClientScript.RegisterStartupScript(GetType(), "myalert", "alert('An error occured or you are already part of this organization');", true);
             }
 
 
             dropDownLocations.Items.Clear();
-            dropDownOrgs.Items.Clear();
             dropDownPartOfOther.Items.Clear();
             populateLocations();
-            populateOrgs();
             populatePartOfOrgs();
 
         }
 
-        public void defaultOrgData(object sender, EventArgs e)
+        public void defaultOrgData()
         {
             String connString = ConfigurationManager.AppSettings["connectionInfo"];
             SqlConnection con = new SqlConnection(connString);
             con.Open();
-            String commType2 = "orgData";
+            String commType2 = "orgDatum";
             SqlCommand cmd2 = new SqlCommand(commType2, con);
-            string userName = Session["UserName"].ToString();
-            string password = Session["Password"].ToString();
 
-            cmd2.Parameters.Add("@uname", SqlDbType.VarChar).Value = userName;
-            cmd2.Parameters.Add("@pwd", SqlDbType.VarChar).Value = password;
-            cmd2.Parameters.Add("@name", SqlDbType.VarChar).Value = dropDownOrgs.SelectedItem.Value.ToString();
+            cmd2.Parameters.Add("@name", SqlDbType.VarChar).Value = Session["EditOrganizationSelect"].ToString();
             cmd2.CommandType = CommandType.StoredProcedure;
             SqlDataReader reader = cmd2.ExecuteReader();
 

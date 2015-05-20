@@ -42,7 +42,7 @@
                     <ul class="nav navbar-nav">
                         <li><a runat="server" href="~/RegisterOrganization.aspx">Register Organization</a></li>
                         <li><a runat="server" href="~/EventPage.aspx">Add Event</a></li>
-                        <li><a runat="server" href="~/EditOrganization.aspx">Edit Organization</a></li>
+                        <li><a runat="server" href="~/EditOrgSelectOrg.aspx">Edit Organization</a></li>
                         <li><a runat="server" href="~/EditEventOrgSelect.aspx">Edit Event</a></li>
                         <li><a runat="server" href="~/RemoveOrganization.aspx">Remove Organization</a></li>
                         <li><a runat="server" href="~/RemoveEventOrgSelect.aspx">Remove Event</a></li>
