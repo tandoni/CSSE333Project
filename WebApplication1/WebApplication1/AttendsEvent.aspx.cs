@@ -68,7 +68,7 @@ namespace WebApplication1
 
             catch (Exception ex)
             {
-                ClientScript.RegisterStartupScript(GetType(), "myalert", "alert('" + ex.Message + "');", true);
+                ClientScript.RegisterStartupScript(GetType(), "myalert", "alert('You are either already marked for this event or an error occured.');", true);
             }
         }
     }

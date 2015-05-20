@@ -13,7 +13,10 @@
             <asp:TextBox ID="endDesc" runat="server" placeholder="Description"></asp:TextBox>
             <br />
             <asp:Button runat="server" OnClick="endorse" ID="orgSelectBtn" CssClass="button" Text="Endorse This!" />
-            <a href="WelcomeUser.aspx">Go Back</a>
+
+            <asp:RegularExpressionValidator ID="RegularExpressionValidator3" ResourceName="rgv"
+            runat="server" ControlToValidate="endDesc" ErrorMessage="No special characters allowed."
+            ValidationExpression="([a-z]|[A-Z]|[@]|[.]|[0-9]|[ ]|[-]|[_])*"></asp:RegularExpressionValidator>
         </div>
     </div>
 </asp:Content>

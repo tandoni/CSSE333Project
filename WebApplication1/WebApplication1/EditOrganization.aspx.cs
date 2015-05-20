@@ -23,7 +23,7 @@ namespace WebApplication1
 
         public void populateOrgs()
         {
-            dropDownOrgs.Items.Add(new ListItem("--Select an Organization--", "\0", true));
+            dropDownOrgs.Items.Add(new ListItem("--Select an Organization--", "-1", true));
             String connString = ConfigurationManager.AppSettings["connectionInfo"];
             SqlConnection con = new SqlConnection(connString);
             con.Open();
@@ -51,7 +51,7 @@ namespace WebApplication1
 
         public void populatePartOfOrgs()
         {
-            dropDownPartOfOther.Items.Add(new ListItem("--Select a Parent Organization--", "\0", true));
+            dropDownPartOfOther.Items.Add(new ListItem("--Select a Parent Organization--", "-1", true));
             String connString = ConfigurationManager.AppSettings["connectionInfo"];
             SqlConnection con = new SqlConnection(connString);
             con.Open();
@@ -79,7 +79,7 @@ namespace WebApplication1
 
         public void populateLocations()
         {
-            dropDownLocations.Items.Add(new ListItem("--Select a new Headquarter--", "\0", true));
+            dropDownLocations.Items.Add(new ListItem("--Keep current headquarter--", "-2", true));
             String connString = ConfigurationManager.AppSettings["connectionInfo"];
             SqlConnection con = new SqlConnection(connString);
             con.Open();
@@ -103,6 +103,10 @@ namespace WebApplication1
                 {
                     ClientScript.RegisterStartupScript(GetType(), "myalert", "alert('Error: Organization cannot be part of itself.');", true);
                 }
+                else if(dropDownOrgs.SelectedItem.Value.ToString().Equals("-1"))
+                {
+                    ClientScript.RegisterStartupScript(GetType(), "myalert", "alert('Error: Please select an organization.');", true);
+                }
                 else
                 {
                     String connString = ConfigurationManager.AppSettings["connectionInfo"];
@@ -124,23 +128,28 @@ namespace WebApplication1
                     cmd2.Parameters.Add("@webpage", SqlDbType.VarChar).Value = editedWebpage;
                     cmd2.Parameters.Add("@description", SqlDbType.VarChar).Value = editedDesc;
                     cmd2.Parameters.Add("@lid", SqlDbType.Int).Value = Convert.ToInt32(dropDownLocations.SelectedItem.Value);
+                    cmd2.Parameters.Add("@name2", SqlDbType.VarChar).Value = dropDownPartOfOther.SelectedItem.Value.ToString();
                     con.Open();
                     cmd2.ExecuteNonQuery();
                     con.Close();
 
                     ClientScript.RegisterStartupScript(GetType(), "myalert", "alert('You edited an organization successfully');", true);
                 }
-                dropDownLocations.Items.Clear();
-                dropDownOrgs.Items.Clear();
-                dropDownPartOfOther.Items.Clear();
-                populateLocations();
-                populateOrgs();
-                populatePartOfOrgs();
             }
             catch (Exception ex)
             {
-                ClientScript.RegisterStartupScript(GetType(), "myalert", "alert('" + ex.Message + "');", true);
+                ClientScript.RegisterStartupScript(GetType(), "myalert", "alert('"+ex.Message+"');", true);
+
+                //ClientScript.RegisterStartupScript(GetType(), "myalert", "alert('An error occured or you are already part of this organization');", true);
             }
+
+
+            dropDownLocations.Items.Clear();
+            dropDownOrgs.Items.Clear();
+            dropDownPartOfOther.Items.Clear();
+            populateLocations();
+            populateOrgs();
+            populatePartOfOrgs();
 
         }
 

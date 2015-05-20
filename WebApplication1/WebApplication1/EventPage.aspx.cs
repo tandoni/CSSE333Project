@@ -18,6 +18,7 @@ namespace WebApplication1
                 hourTime.Items.Clear();
                 minuteTime.Items.Clear();
                 dropDownLocations.Items.Clear();
+                calender1.SelectedDate = DateTime.Today;
             }
 
             populateMinuteAndHours();

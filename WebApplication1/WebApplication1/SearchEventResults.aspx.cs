@@ -51,7 +51,14 @@ namespace WebApplication1
                     gridView1.DataBind();
                 }
                 con.Close();
-                ClientScript.RegisterStartupScript(GetType(), "myalert", "alert('results below. :)');", true);
+                if (gridView1.Items.Count == 0)
+                {
+                    ClientScript.RegisterStartupScript(GetType(), "myalert", "alert('no results found. :(');", true);
+                }
+                else
+                {
+                    ClientScript.RegisterStartupScript(GetType(), "myalert", "alert('results below. :)');", true);
+                }
                 reader.Close();
 
             }

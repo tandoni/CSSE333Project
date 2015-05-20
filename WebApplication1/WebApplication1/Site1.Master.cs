@@ -11,7 +11,10 @@ namespace WebApplication1
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-
+            if (Session["UserName"].ToString().Equals(""))
+            {
+                Response.Redirect("LoginPage.aspx");
+            }
         }
 
         public void logout(object sender, EventArgs e)

@@ -11,7 +11,6 @@
                 </asp:DropDownList>
                 <br />
                 <asp:Button runat="server" OnClick="selectLoc" ID="locSelectBtn" CssClass="button" Text="Register a Branch" />
-                <a href="WelcomeUser.aspx">Go Back</a>
             </div>
     </div>
     </asp:Content>

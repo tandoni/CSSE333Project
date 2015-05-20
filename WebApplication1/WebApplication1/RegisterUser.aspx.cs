@@ -38,11 +38,22 @@ namespace WebApplication1
                 cmd.Parameters.Add("@pwd", SqlDbType.NVarChar).Value = hashedPassword;
                 cmd.Parameters.Add("@name", SqlDbType.NVarChar).Value = regName;
                 cmd.Parameters.Add("@email", SqlDbType.NVarChar).Value = regEmail;
+                cmd.Parameters.Add("@returnVal", SqlDbType.Int).Direction = ParameterDirection.Output;
 
                 conn.Open();
                 cmd.ExecuteNonQuery();
+                int result = Convert.ToInt32(cmd.Parameters["@returnVal"].Value);
                 conn.Close();
-                ClientScript.RegisterStartupScript(GetType(), "myalert", "alert('You registered sucessfully!');", true);
+                if (result == 1)
+                {
+                    Session["UserName"] = regUname;
+                    Session["Password"] = hashedPassword;
+                    Response.Redirect("WelcomeUser.aspx");
+                }
+                else
+                {
+                    ClientScript.RegisterStartupScript(GetType(), "myalert", "alert('Username already taken!');", true);
+                }
             }
            
             catch (Exception ex)

@@ -16,14 +16,20 @@
             <asp:TextBox runat="server" ID="newDescription" placeholder="Description" />
             <label id="icon" for="name" style="margin-top: 10px"><i class="">Select your Headquarter location?</i></label>
             <asp:DropDownList ClientIDMode="Static" AppendDataBoundItems="true" ID="dropDownLocations" runat="server">
-                <asp:ListItem Value="None" Text="None" Selected="True">
-                </asp:ListItem>
+                
             </asp:DropDownList>
         </div>
-        <asp:Button runat="server" ValidationGroup="registerFields" OnClick="registerOrganization" ID="registerButton" CssClass="button" Text="Register" />
-        <div>
-            <asp:RequiredFieldValidator EnableClientScript="true" ValidationGroup="registerFields" ErrorMessage="Enter Name" runat="server" ControlToValidate="newOrgname">
+        <asp:Button runat="server" OnClick="registerOrganization" ID="registerButton" CssClass="button" Text="Register" />
+            <asp:RequiredFieldValidator EnableClientScript="true" ErrorMessage="Enter Name" runat="server" ControlToValidate="newOrgname">
             </asp:RequiredFieldValidator>
+             <asp:RegularExpressionValidator ID="rgv2" ResourceName="rgv"
+            runat="server" ControlToValidate="newOrgName" ErrorMessage="Please enter valid name."
+            ValidationExpression="([a-z]|[A-Z]|[@]|[.]|[0-9]|[ ]|[-]|[_])*"></asp:RegularExpressionValidator>
+            <asp:RegularExpressionValidator ID="RegularExpressionValidator1" ResourceName="rgv"
+            runat="server" ControlToValidate="newWebsite" ErrorMessage="Please enter valid webpage."
+            ValidationExpression="([a-z]|[A-Z]|[@]|[.]|[0-9]|[ ]|[-]|[_])*"></asp:RegularExpressionValidator>
+            <asp:RegularExpressionValidator ID="RegularExpressionValidator2" ResourceName="rgv"
+            runat="server" ControlToValidate="newDescription" ErrorMessage="Please enter valid description."
+            ValidationExpression="([a-z]|[A-Z]|[@]|[.]|[0-9]|[ ]|[-]|[_])*"></asp:RegularExpressionValidator>
         </div>
-    </div>
 </asp:Content>

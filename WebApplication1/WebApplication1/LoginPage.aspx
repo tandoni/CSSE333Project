@@ -21,7 +21,6 @@
                     </div>
                     <div>
                         <asp:Button ID="loginBtn" OnClick="loginValidate" Text="Log in" runat="server" />
-                        <!--<input type="submit" value="Log in" /> -->
                         <a href="SearchOrgsOrgSelect.aspx">Search Organizations...</a>
                         <a href="SearchEventsEventSelect.aspx">Search Events...</a>
                         <a href="RegisterUser.aspx" >Register</a>

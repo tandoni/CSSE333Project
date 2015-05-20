@@ -13,14 +13,16 @@
             <br />
 
             <label id="icon" for="name"><i class="icon-smile"></i></label>
-            <asp:TextBox runat="server" ValidationGroup="rates" ID="ratingText" placeholder="Enter a rating from 0 to 10"></asp:TextBox>
-            <asp:RangeValidator ID="rangeVal" ValidationGroup="rates" ControlToValidate="ratingText" runat="server" EnableClientScript="true" MinimumValue="0.0" MaximumValue="10.0" Type="Double" ErrorMessage="Please enter b/w 0-10"></asp:RangeValidator>
+            <asp:TextBox runat="server" ID="ratingText" placeholder="Enter a rating from 0 to 10"></asp:TextBox>
+            <asp:RangeValidator ID="rangeVal" ControlToValidate="ratingText" runat="server" EnableClientScript="true" MinimumValue="0.0" MaximumValue="10.0" Type="Double" ErrorMessage="Please enter b/w 0.0-10.0"></asp:RangeValidator>
             <br />
             <label id="icon" for="name"><i class="icon-envelope"></i></label>
             <asp:TextBox placeholder="Edit Description" runat="server" ID="editDesc2" />
 
         </div>
-        <asp:Button runat="server" ValidationGroup="rates" OnClick="rateEventBtn" ID="rateEvent" CssClass="button" Text="Submit" />
-
+        <asp:Button runat="server" OnClick="rateEventBtn" ID="rateEvent" CssClass="button" Text="Submit" />
+        <asp:RegularExpressionValidator ID="rgv2" ResourceName="rgv"
+            runat="server" ControlToValidate="editDesc2" ErrorMessage="Please enter valid webpage."
+            ValidationExpression="([a-z]|[A-Z]|[@]|[.]|[0-9]|[ ]|[-]|[_])*"></asp:RegularExpressionValidator>
     </div>
 </asp:Content>

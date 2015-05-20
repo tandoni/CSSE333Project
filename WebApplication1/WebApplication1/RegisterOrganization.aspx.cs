@@ -8,11 +8,14 @@ namespace WebApplication1
     public partial class RegisterOrganization : System.Web.UI.Page
     {
         protected void Page_Load(object sender, EventArgs e)
-        { 
-            populate1();
+        {
+            if (!IsPostBack)
+            {
+                populateLocations();
+            }
         }
 
-        public void populate1()
+        public void populateLocations()
         {
             String connString = ConfigurationManager.AppSettings["connectionInfo"];
             SqlConnection con = new SqlConnection(connString);
@@ -60,7 +63,7 @@ namespace WebApplication1
                 int num = cmd.ExecuteNonQuery();
                 conn.Close();
                 dropDownLocations.Items.Clear();
-                populate1();
+                populateLocations();
                 if (num == 0)
                 {
                     ClientScript.RegisterStartupScript(GetType(), "myalert", "alert('No rows Affected');", true);

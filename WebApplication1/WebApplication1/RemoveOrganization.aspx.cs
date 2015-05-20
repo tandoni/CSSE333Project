@@ -81,6 +81,8 @@ namespace WebApplication1
             }
             catch (Exception ex)
             {
+                dropDownOrgs.Items.Clear();
+                populateOrgs();
                 ClientScript.RegisterStartupScript(GetType(), "myalert", "alert('" + ex.Message + "');", true);
             }
         }

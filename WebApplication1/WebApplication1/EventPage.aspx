@@ -17,7 +17,8 @@
             <asp:Calendar ID="calender1" runat="server" Style="margin-left: 30px; margin-top: 10px; margin-bottom: 10px;"
                 BackColor="White" BorderColor="#3366CC" CellPadding="1" DayNameFormat="Shortest"
                 Font-Names="Verdana" Font-Size="8pt" ForeColor="#003399" Height="200px"
-                Width="250px">
+                Width="250px" >
+                
                 <SelectedDayStyle BackColor="#009999" Font-Bold="True" ForeColor="#CCFF99" />
                 <TodayDayStyle BackColor="#99CCCC" ForeColor="White" />
                 <SelectorStyle BackColor="#99CCCC" ForeColor="#336666" />
@@ -50,6 +51,12 @@
         <div>
             <asp:RequiredFieldValidator EnableClientScript="true" ValidationGroup="registerFields" ErrorMessage="Enter Event Name" runat="server" ControlToValidate="newEventName">
             </asp:RequiredFieldValidator>
+            <asp:RegularExpressionValidator ID="RegularExpressionValidator3" ResourceName="rgv"
+            runat="server" ControlToValidate="newEventName" ErrorMessage="Please enter valid name."
+            ValidationExpression="([a-z]|[A-Z]|[@]|[.]|[0-9]|[ ]|[-]|[_])*"></asp:RegularExpressionValidator>
+             <asp:RegularExpressionValidator  ID="descVal" ResourceName="rgv"
+            runat="server" ControlToValidate="newDescription" ErrorMessage="Please enter valid description."
+            ValidationExpression="([a-z]|[A-Z]|[@]|[.]|[ ]|[0-9]|[-]|[_])*"></asp:RegularExpressionValidator>
             <%-- <asp:RequiredFieldValidator EnableClientScript="true" ValidationGroup="registerFields" ErrorMessage="Enter Password" runat="server" ControlToValidate="newPassword">
                 </asp:RequiredFieldValidator>
                 <asp:RequiredFieldValidator EnableClientScript="true" ValidationGroup="registerFields" ErrorMessage="Enter Email" runat="server" ControlToValidate="newEmail">

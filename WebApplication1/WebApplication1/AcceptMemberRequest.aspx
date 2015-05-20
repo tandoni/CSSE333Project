@@ -9,7 +9,6 @@
             </asp:DropDownList>
             <br />
             <asp:Button ClientIDMode="Static" runat="server" OnClick="selectUsers" ID="userSelectBtn" CssClass="button" Text="Accept Request" />
-            <a href="WelcomeUser.aspx" style="position: absolute; top: 250px">Go Back</a>
         </div>
     </div>
 </asp:Content>
