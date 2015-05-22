@@ -16,9 +16,12 @@ namespace WebApplication1
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-            populateLocations();
-            populatePartOfOrgs();
-            defaultOrgData();
+            if (!IsPostBack)
+            {
+                populateLocations();
+                populatePartOfOrgs();
+                defaultOrgData();
+            }
         }
 
         public void populatePartOfOrgs()
@@ -130,8 +133,13 @@ namespace WebApplication1
             //dropDownLocations.DataValueField = "lid";
             //dropDownLocations.DataTextField = "name";
             //dropDownLocations.DataBind();
-            editDesc.Text = reader["description"].ToString();
-            editUrl.Text = reader["webpage"].ToString();
+
+            while (reader.Read())
+            {
+
+                editDesc.Text = reader["description"].ToString();
+                editUrl.Text = reader["webpage"].ToString();
+            }
             con.Close();
         }
     }

@@ -8,38 +8,34 @@ namespace WebApplication1
 {
     public partial class EditEvent : System.Web.UI.Page
     {
-        public String date;
-        public String month;
-        public String year;
-        public String hour;
-        public String minute;
-        public String ampm;
         protected void Page_Load(object sender, EventArgs e)
         {
-            if (IsPostBack)
+            if (!IsPostBack)
             {
-                date = calender2.SelectedDate.Day.ToString();
-                month = calender2.SelectedDate.Month.ToString();
-                year = calender2.SelectedDate.Year.ToString();
-                hour = hourTime2.SelectedItem.Value.ToString();
-                minute = minuteTime2.SelectedItem.Value.ToString();
-                ampm = AMPM2.SelectedItem.Value.ToString();
+                eventName.Text = Session["EditEventSelectText"].ToString();
 
-                dropDownEvents.Items.Clear();
                 hourTime2.Items.Clear();
                 minuteTime2.Items.Clear();
                 dropDownLocations2.Items.Clear();
+
+                populateLocations();
+                populateMinuteAndHours();
+                defaultOrgData();
             }
 
-            populateEvents();
-            populateLocations();
-            populateMinuteAndHours();
         }
 
         public void editEvent2(object sender, EventArgs e)
         {
             try
             {
+                String date = calender2.SelectedDate.Day.ToString();
+                String month = calender2.SelectedDate.Month.ToString();
+                String year = calender2.SelectedDate.Year.ToString();
+                String hour = hourTime2.SelectedItem.Value.ToString();
+                String minute = minuteTime2.SelectedItem.Value.ToString();
+                String ampm = AMPM2.SelectedItem.Value.ToString();
+
                 String evName = eventName.Text;
                 String evDesc = editDesc2.Text;
 
@@ -61,18 +57,17 @@ namespace WebApplication1
 
                 cmd.Parameters.Add("@uname", SqlDbType.VarChar).Value = userid;
                 cmd.Parameters.Add("@pwd", SqlDbType.VarChar).Value = password;
-                cmd.Parameters.Add("@eid", SqlDbType.Int).Value = Convert.ToInt32(dropDownEvents.SelectedItem.Value.ToString());
+                cmd.Parameters.Add("@eid", SqlDbType.Int).Value = Convert.ToInt32(Session["EditEventSelectValue"].ToString());
                 cmd.Parameters.Add("@ename", SqlDbType.VarChar).Value = evName;
                 cmd.Parameters.Add("@description", SqlDbType.VarChar).Value = evDesc;
                 cmd.Parameters.Add("@time", SqlDbType.VarChar).Value = finalString;
+                cmd.Parameters.Add("@lid", SqlDbType.Int).Value = Convert.ToInt32(dropDownLocations2.SelectedItem.Value);
 
                 conn.Open();
                 cmd.ExecuteNonQuery();
                 conn.Close();
 
-                dropDownEvents.Items.Clear();
                 dropDownLocations2.Items.Clear();
-                populateEvents();
                 populateLocations();
                 ClientScript.RegisterStartupScript(GetType(), "myalert", "alert('You edited an event successfully');", true);
             }
@@ -105,7 +100,7 @@ namespace WebApplication1
 
         public void populateLocations()
         {
-            dropDownLocations2.Items.Add(new ListItem("None", "-1"));
+            dropDownLocations2.Items.Add(new ListItem("--Keep Current Location--", "-2"));
             String connString = ConfigurationManager.AppSettings["connectionInfo"];
             SqlConnection con = new SqlConnection(connString);
             con.Open();
@@ -121,28 +116,35 @@ namespace WebApplication1
             con.Close();
         }
 
-        public void populateEvents()
+        public void defaultOrgData()
         {
             String connString = ConfigurationManager.AppSettings["connectionInfo"];
             SqlConnection con = new SqlConnection(connString);
             con.Open();
-            String commType2 = "myEvents";
+            String commType2 = "eventDatum";
             SqlCommand cmd2 = new SqlCommand(commType2, con);
+
+            cmd2.Parameters.Add("@eid", SqlDbType.VarChar).Value = Session["EditEventSelectValue"].ToString();
             cmd2.CommandType = CommandType.StoredProcedure;
-
-            string userName = Session["UserName"].ToString();
-            string password = Session["Password"].ToString();
-            string orgName = Session["EventList"].ToString();
-
-            cmd2.Parameters.Add("@uname", SqlDbType.VarChar).Value = userName;
-            cmd2.Parameters.Add("@pwd", SqlDbType.VarChar).Value = password;
-            cmd2.Parameters.Add("@name", SqlDbType.VarChar).Value = orgName;
             SqlDataReader reader = cmd2.ExecuteReader();
 
-            dropDownEvents.DataSource = reader;
-            dropDownEvents.DataTextField = "ename";
-            dropDownEvents.DataValueField = "eid";
-            dropDownEvents.DataBind();
+            //dropDownLocations.SelectedItem.Value = reader["lid"].ToString();
+            //dropDownLocations.DataValueField = "lid";
+            //dropDownLocations.DataTextField = "name";
+            //dropDownLocations.DataBind();
+
+            while (reader.Read())
+            {
+
+                editDesc2.Text = reader["description"].ToString();
+                String editTime = reader["time"].ToString();
+                String[] datee = editTime.Split(' ');
+                String[] timee = datee[1].Split(':');
+                hourTime2.SelectedValue = timee[0];
+                minuteTime2.SelectedValue = timee[1];
+                AMPM2.SelectedValue = datee[2];
+                calender2.SelectedDate = Convert.ToDateTime(datee[0]);
+            }
             con.Close();
         }
     }

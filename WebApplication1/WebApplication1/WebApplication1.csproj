@@ -177,6 +177,7 @@
     <Content Include="Content\Site.css" />
     <Content Include="EditEvent.aspx" />
     <Content Include="EditEventOrgSelect.aspx" />
+    <Content Include="EditEventSelectEvent.aspx" />
     <Content Include="EditOrganization.aspx" />
     <Content Include="EditOrgSelectOrg.aspx" />
     <Content Include="EndorsesOtherOrg.aspx" />
@@ -450,6 +451,13 @@
     </Compile>
     <Compile Include="EditEventOrgSelect.aspx.designer.cs">
       <DependentUpon>EditEventOrgSelect.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="EditEventSelectEvent.aspx.cs">
+      <DependentUpon>EditEventSelectEvent.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="EditEventSelectEvent.aspx.designer.cs">
+      <DependentUpon>EditEventSelectEvent.aspx</DependentUpon>
     </Compile>
     <Compile Include="EditOrganization.aspx.cs">
       <DependentUpon>EditOrganization.aspx</DependentUpon>
