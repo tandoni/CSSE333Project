@@ -10,7 +10,7 @@
             <br />
             <%--<label id="icon" for="name"><i class="icon-user"></i></label>--%>
             <%--<asp:Label BackColor="Gray" runat="server" ID="orgName" placeholder="Organiazation Name" />--%>
-            <label style="text-align: center; display: block;" id="orgName">--Select an Organization--</label>
+            <b><asp:Label style="text-align: center; display: block;" runat="server" ID="orgName">--Select an Organization--</asp:Label></b>
 
             <label id="icon" for="name"><i class="icon-link"></i></label>
             <asp:TextBox placeholder="Edit Webpage" runat="server" ID="editUrl" />

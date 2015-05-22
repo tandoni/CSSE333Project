@@ -42,9 +42,10 @@ namespace WebApplication1
                     {
                         String name = reader["name"].ToString();
                         String webpage = reader["webpage"].ToString();
+                        String url = "<a href=http://" + webpage + ">" + webpage + "</a>";
                         String description = reader["description"].ToString();
 
-                        dt.Rows.Add(name, webpage, description);
+                        dt.Rows.Add(name, url, description);
                     }
 
                     gridView1.DataSource = dt;

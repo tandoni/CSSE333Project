@@ -21,6 +21,7 @@ namespace WebApplication1
                 populateLocations();
                 populatePartOfOrgs();
                 defaultOrgData();
+                orgName.Text = Session["EditOrganizationSelect"].ToString();
             }
         }
 

@@ -46,9 +46,16 @@ namespace WebApplication1
                         String time = reader["time"].ToString();
                         String lat = reader["latitude"].ToString();
                         String lon = reader["longitude"].ToString();
-                        //HyperLink finalLocString = new HyperLink();
-                        String finalLocString = "<a href=\"http://maps.google.com/maps?q=" + lat + "," + lon + "\">Locate Me!</a>";
-                        
+                        String finalLocString;
+
+                        if (lat.Equals("") || lon.Equals(""))
+                        {
+                            finalLocString = "No Location Specified!";
+                        }
+                        else
+                        {
+                            finalLocString = "<a href=\"http://maps.google.com/maps?q=" + lat + "," + lon + "\">Locate Me!</a>";
+                        }
                         dt.Rows.Add(name, desc, time, finalLocString);
                     }
 
