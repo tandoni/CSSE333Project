@@ -136,7 +136,7 @@ namespace WebApplication1
                 populateOrgs();
                 populateLocations();
 
-                ClientScript.RegisterStartupScript(GetType(), "myalert", "alert('You added an event successfully');", true);
+              //  ClientScript.RegisterStartupScript(GetType(), "myalert", "alert('You added an event successfully');", true);
             }
             catch (Exception ex)
             {

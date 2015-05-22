@@ -73,7 +73,7 @@ namespace WebApplication1
                     cmd2.ExecuteNonQuery();
                     con.Close();
 
-                    ClientScript.RegisterStartupScript(GetType(), "myalert", "alert('You removed an organization successfully');", true);
+                  //  ClientScript.RegisterStartupScript(GetType(), "myalert", "alert('You removed an organization successfully');", true);
 
                 }
                 dropDownOrgs.Items.Clear();

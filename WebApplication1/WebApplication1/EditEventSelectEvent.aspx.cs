@@ -23,6 +23,7 @@ namespace WebApplication1
 
         public void populateEvents()
         {
+            dropDownEvents.Items.Add(new ListItem("--Select an Event--", "-1"));
             String connString = ConfigurationManager.AppSettings["connectionInfo"];
             SqlConnection con = new SqlConnection(connString);
             con.Open();
@@ -48,9 +49,16 @@ namespace WebApplication1
 
         public void selectEvent(object sender, EventArgs e)
         {
-            Session["EditEventSelectText"] = dropDownEvents.SelectedItem.Text.ToString();
-            Session["EditEventSelectValue"] = dropDownEvents.SelectedItem.Value.ToString();
-            Response.Redirect("EditEvent.aspx");
+            if (dropDownEvents.SelectedItem.Value.ToString().Equals("-1"))
+            {
+                ClientScript.RegisterStartupScript(GetType(), "myalert", "alert('uh oh! Error occured.');", true);
+            }
+            else
+            {
+                Session["EditEventSelectText"] = dropDownEvents.SelectedItem.Text.ToString();
+                Session["EditEventSelectValue"] = dropDownEvents.SelectedItem.Value.ToString();
+                Response.Redirect("EditEvent.aspx");
+            }
         }
     }
 }

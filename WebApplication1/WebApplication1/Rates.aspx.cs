@@ -50,7 +50,7 @@ namespace WebApplication1
                     cmd2.ExecuteNonQuery();
                     con.Close();
 
-                    ClientScript.RegisterStartupScript(GetType(), "myalert", "alert('You rated an event successfully');", true);
+                   // ClientScript.RegisterStartupScript(GetType(), "myalert", "alert('You rated an event successfully');", true);
                 }
 
                 dropDownEvents.Items.Clear();

@@ -99,7 +99,7 @@ namespace WebApplication1
                 cmd2.ExecuteNonQuery();
                 con.Close();
 
-                ClientScript.RegisterStartupScript(GetType(), "myalert", "alert('You edited an organization successfully');", true);
+              //  ClientScript.RegisterStartupScript(GetType(), "myalert", "alert('You edited an organization successfully');", true);
 
             }
             catch (Exception ex)

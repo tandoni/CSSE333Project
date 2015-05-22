@@ -68,7 +68,7 @@ namespace WebApplication1
                 }
                 else
                 {
-                    ClientScript.RegisterStartupScript(GetType(), "myalert", "alert('results below. :)');", true);
+                 //   ClientScript.RegisterStartupScript(GetType(), "myalert", "alert('results below. :)');", true);
                 }
                 reader.Close();
 

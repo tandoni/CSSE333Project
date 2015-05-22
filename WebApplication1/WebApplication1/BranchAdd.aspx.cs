@@ -66,7 +66,7 @@ namespace WebApplication1
                 cmd2.ExecuteNonQuery();
                 con.Close();
 
-                ClientScript.RegisterStartupScript(GetType(), "myalert", "alert('You registered a new branch successfully');", true);
+              //  ClientScript.RegisterStartupScript(GetType(), "myalert", "alert('You registered a new branch successfully');", true);
 
                 dropDownLocations.Items.Clear();
                 populateLocations();

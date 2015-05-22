@@ -68,7 +68,7 @@ namespace WebApplication1
                 cmd2.ExecuteNonQuery();
                 con.Close();
 
-                ClientScript.RegisterStartupScript(GetType(), "myalert", "alert('You marked as an manager successfully');", true);
+              //  ClientScript.RegisterStartupScript(GetType(), "myalert", "alert('You marked as an manager successfully');", true);
 
                 dropDownEvents.Items.Clear();
                 populateEvents();

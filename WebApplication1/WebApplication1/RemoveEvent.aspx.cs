@@ -69,7 +69,7 @@ namespace WebApplication1
                 cmd2.ExecuteNonQuery();
                 con.Close();
 
-                ClientScript.RegisterStartupScript(GetType(), "myalert", "alert('You removed an event successfully');", true);
+            //    ClientScript.RegisterStartupScript(GetType(), "myalert", "alert('You removed an event successfully');", true);
 
 
                 dropDownEvents.Items.Clear();

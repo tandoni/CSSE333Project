@@ -70,7 +70,7 @@ namespace WebApplication1
                 }
                 else
                 {
-                    ClientScript.RegisterStartupScript(GetType(), "myalert", "alert('"+num+" rows were affected!');", true);
+               //     ClientScript.RegisterStartupScript(GetType(), "myalert", "alert('"+num+" rows were affected!');", true);
 
                 }
             }

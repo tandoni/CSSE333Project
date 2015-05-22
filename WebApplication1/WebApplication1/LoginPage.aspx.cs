@@ -52,7 +52,7 @@ namespace WebApplication1
                 if (result.Equals("1"))
                 {
                     Response.Redirect("WelcomeUser.aspx");
-                    ClientScript.RegisterStartupScript(this.GetType(), "myalert", "alert('Database WORKS!');", true);
+                //    ClientScript.RegisterStartupScript(this.GetType(), "myalert", "alert('Database WORKS!');", true);
                 }
                 else
                 {

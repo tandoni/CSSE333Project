@@ -60,7 +60,7 @@ namespace WebApplication1
                     populateEvents();
                     populateOrgs();
 
-                    ClientScript.RegisterStartupScript(GetType(), "myalert", "alert('You hosted an event successfully');", true);
+                  //  ClientScript.RegisterStartupScript(GetType(), "myalert", "alert('You hosted an event successfully');", true);
                 }
             }
             catch (Exception ex)

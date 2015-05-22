@@ -67,7 +67,7 @@ namespace WebApplication1
 
                 dropDownOrgs.Items.Clear();
                 populateOrgs();
-                ClientScript.RegisterStartupScript(GetType(), "myalert", "alert('You requested successfully');", true);
+             //   ClientScript.RegisterStartupScript(GetType(), "myalert", "alert('You requested successfully');", true);
             }
             catch (Exception ex)
             {

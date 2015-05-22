@@ -69,7 +69,7 @@ namespace WebApplication1
 
                 dropDownLocations2.Items.Clear();
                 populateLocations();
-                ClientScript.RegisterStartupScript(GetType(), "myalert", "alert('You edited an event successfully');", true);
+              //  ClientScript.RegisterStartupScript(GetType(), "myalert", "alert('You edited an event successfully');", true);
             }
             catch (Exception ex)
             {

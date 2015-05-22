@@ -69,7 +69,7 @@ namespace WebApplication1
 
                 dropDownNames.Items.Clear();
                 populateNames();
-                ClientScript.RegisterStartupScript(GetType(), "myalert", "alert('You accepted successfully');", true);
+              //  ClientScript.RegisterStartupScript(GetType(), "myalert", "alert('You accepted successfully');", true);
             }
             catch (Exception ex)
             {
