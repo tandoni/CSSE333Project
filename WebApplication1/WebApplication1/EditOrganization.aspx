@@ -31,7 +31,7 @@
 
         <asp:RegularExpressionValidator ID="rgv2" ResourceName="rgv"
             runat="server" ControlToValidate="editUrl" ErrorMessage="Please enter valid webpage."
-            ValidationExpression="([a-z]|[A-Z]|[@]|[.]|[0-9]|[ ]|[-]|[_])*"></asp:RegularExpressionValidator>
+            ValidationExpression="^((http|https)://)([\w-]+\.)+[\w]+(/[\w- ./?]*)?$"></asp:RegularExpressionValidator>
         <asp:RegularExpressionValidator ID="RegularExpressionValidator3" ResourceName="rgv"
             runat="server" ControlToValidate="editDesc" ErrorMessage="Please enter valid description."
             ValidationExpression="([a-z]|[A-Z]|[@]|[.]|[0-9]|[ ]|[-]|[_])*"></asp:RegularExpressionValidator>

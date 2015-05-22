@@ -42,7 +42,17 @@ namespace WebApplication1
                     {
                         String name = reader["name"].ToString();
                         String webpage = reader["webpage"].ToString();
-                        String url = "<a href=http://" + webpage + ">" + webpage + "</a>";
+                        System.Uri uriResult;
+                        String url;
+                        bool result = Uri.TryCreate(webpage, UriKind.Absolute, out uriResult) && uriResult.Scheme == Uri.UriSchemeHttp;
+                        if (result)
+                        {
+                            url = "<a target='_blank' href='" + webpage + "'>" + webpage + "</a>";
+                        }
+                        else
+                        {
+                            url = webpage;
+                        }
                         String description = reader["description"].ToString();
 
                         dt.Rows.Add(name, url, description);

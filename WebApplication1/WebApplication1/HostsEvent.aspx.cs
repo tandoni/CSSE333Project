@@ -27,9 +27,9 @@ namespace WebApplication1
         {
             try
             {
-                if (Session["EventList5"].ToString().Equals(dropDownOrgs.SelectedItem.Text.ToString()))
+                if (dropDownOrgs.SelectedItem.Value.ToString().Equals("-1"))
                 {
-                    ClientScript.RegisterStartupScript(GetType(), "myalert", "alert('You cannot host event form the same organization.\n Select a different one');", true);
+                    ClientScript.RegisterStartupScript(GetType(), "myalert", "alert('Please select an organization');", true);
                 }
                 else
                 {
@@ -96,6 +96,7 @@ namespace WebApplication1
 
         public void populateOrgs()
         {
+            dropDownOrgs.Items.Add(new ListItem("--Select an Organization--", "-1"));
             String connString = ConfigurationManager.AppSettings["connectionInfo"];
             SqlConnection con = new SqlConnection(connString);
             con.Open();

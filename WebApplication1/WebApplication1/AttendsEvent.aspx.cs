@@ -23,6 +23,7 @@ namespace WebApplication1
 
         public void populateEvents()
         {
+            dropDownEvents.Items.Add(new ListItem("--Select an Event--", "-1"));
             String connString = ConfigurationManager.AppSettings["connectionInfo"];
             SqlConnection con = new SqlConnection(connString);
             con.Open();
@@ -46,22 +47,28 @@ namespace WebApplication1
                 String connString = ConfigurationManager.AppSettings["connectionInfo"];
                 SqlConnection con = new SqlConnection(connString);
 
-                String commType2 = "addAttends";
-                SqlCommand cmd2 = new SqlCommand(commType2, con);
-                cmd2.CommandType = CommandType.StoredProcedure;
+                if (dropDownEvents.SelectedItem.Value.ToString().Equals("-1"))
+                {
+                    ClientScript.RegisterStartupScript(GetType(), "myalert", "alert('Error occured. :( Aw!');", true);
+                }
+                else
+                {
+                    String commType2 = "addAttends";
+                    SqlCommand cmd2 = new SqlCommand(commType2, con);
+                    cmd2.CommandType = CommandType.StoredProcedure;
 
-                string userName = Session["UserName"].ToString();
-                string password = Session["Password"].ToString();
+                    string userName = Session["UserName"].ToString();
+                    string password = Session["Password"].ToString();
 
-                cmd2.Parameters.Add("@uname", SqlDbType.VarChar).Value = userName;
-                cmd2.Parameters.Add("@pwd", SqlDbType.VarChar).Value = password;
-                cmd2.Parameters.Add("@eid", SqlDbType.Int).Value = Convert.ToInt32(dropDownEvents.SelectedItem.Value);
-                con.Open();
-                cmd2.ExecuteNonQuery();
-                con.Close();
+                    cmd2.Parameters.Add("@uname", SqlDbType.VarChar).Value = userName;
+                    cmd2.Parameters.Add("@pwd", SqlDbType.VarChar).Value = password;
+                    cmd2.Parameters.Add("@eid", SqlDbType.Int).Value = Convert.ToInt32(dropDownEvents.SelectedItem.Value);
+                    con.Open();
+                    cmd2.ExecuteNonQuery();
+                    con.Close();
 
-                ClientScript.RegisterStartupScript(GetType(), "myalert", "alert('You marked as an attendee successfully');", true);
-
+                    ClientScript.RegisterStartupScript(GetType(), "myalert", "alert('You marked as an attendee successfully');", true);
+                }
                 dropDownEvents.Items.Clear();
                 populateEvents();
             }

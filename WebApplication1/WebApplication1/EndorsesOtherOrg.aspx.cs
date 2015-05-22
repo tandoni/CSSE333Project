@@ -24,6 +24,7 @@ namespace WebApplication1
 
         public void populateOrgs()
         {
+            dropDownOrgs.Items.Add(new ListItem("--Select an Organization", "-1"));
             String connString = ConfigurationManager.AppSettings["connectionInfo"];
             SqlConnection con = new SqlConnection(connString);
             con.Open();
@@ -52,26 +53,32 @@ namespace WebApplication1
             {
                 String connString = ConfigurationManager.AppSettings["connectionInfo"];
                 SqlConnection con = new SqlConnection(connString);
-                
-                String editedDesc = endDesc.Text;
+                if (dropDownOrgs.SelectedItem.Value.ToString().Equals("-1"))
+                {
+                    ClientScript.RegisterStartupScript(GetType(), "myalert", "alert('Error');", true);
+                }
+                else
+                {
+                    String editedDesc = endDesc.Text;
 
-                String commType2 = "addEndorsement";
-                SqlCommand cmd2 = new SqlCommand(commType2, con);
-                cmd2.CommandType = CommandType.StoredProcedure;
+                    String commType2 = "addEndorsement";
+                    SqlCommand cmd2 = new SqlCommand(commType2, con);
+                    cmd2.CommandType = CommandType.StoredProcedure;
 
-                string userName = Session["UserName"].ToString();
-                string password = Session["Password"].ToString();
+                    string userName = Session["UserName"].ToString();
+                    string password = Session["Password"].ToString();
 
-                cmd2.Parameters.Add("@uname", SqlDbType.VarChar).Value = userName;
-                cmd2.Parameters.Add("@pwd", SqlDbType.VarChar).Value = password;
-                cmd2.Parameters.Add("@name", SqlDbType.VarChar).Value = Session["EventList7"].ToString();
-                cmd2.Parameters.Add("@name2", SqlDbType.VarChar).Value = dropDownOrgs.SelectedItem.Text.ToString();
-                cmd2.Parameters.Add("@text", SqlDbType.VarChar).Value = editedDesc;
-                con.Open();
-                cmd2.ExecuteNonQuery();
-                con.Close();
+                    cmd2.Parameters.Add("@uname", SqlDbType.VarChar).Value = userName;
+                    cmd2.Parameters.Add("@pwd", SqlDbType.VarChar).Value = password;
+                    cmd2.Parameters.Add("@name", SqlDbType.VarChar).Value = Session["EventList7"].ToString();
+                    cmd2.Parameters.Add("@name2", SqlDbType.VarChar).Value = dropDownOrgs.SelectedItem.Text.ToString();
+                    cmd2.Parameters.Add("@text", SqlDbType.VarChar).Value = editedDesc;
+                    con.Open();
+                    cmd2.ExecuteNonQuery();
+                    con.Close();
 
-                ClientScript.RegisterStartupScript(GetType(), "myalert", "alert('You endorsed an organization successfully');", true);
+                    ClientScript.RegisterStartupScript(GetType(), "myalert", "alert('You endorsed an organization successfully');", true);
+                }
 
                 dropDownOrgs.Items.Clear();
                 populateOrgs();

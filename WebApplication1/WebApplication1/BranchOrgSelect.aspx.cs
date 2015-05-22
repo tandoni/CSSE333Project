@@ -24,6 +24,7 @@ namespace WebApplication1
 
         public void populateOrgs()
         {
+            dropDownOrgs.Items.Add(new ListItem("--Select an Organization--", "-1"));
             String connString = ConfigurationManager.AppSettings["connectionInfo"];
             SqlConnection con = new SqlConnection(connString);
             con.Open();
@@ -47,8 +48,15 @@ namespace WebApplication1
 
         public void selectOrg(object sender, EventArgs e)
         {
-            Session["EventList6"] = dropDownOrgs.SelectedItem.Text.ToString();
-            Response.Redirect("BranchAdd.aspx");
+            if (dropDownOrgs.SelectedItem.Value.ToString().Equals("-1"))
+            {
+                ClientScript.RegisterStartupScript(GetType(), "myalert", "alert('Please select an organization');", true);
+            }
+            else
+            {
+                Session["EventList6"] = dropDownOrgs.SelectedItem.Text.ToString();
+                Response.Redirect("BranchAdd.aspx");
+            }
         }
     }
 }

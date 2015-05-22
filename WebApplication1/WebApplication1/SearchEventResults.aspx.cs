@@ -54,7 +54,7 @@ namespace WebApplication1
                         }
                         else
                         {
-                            finalLocString = "<a href=\"http://maps.google.com/maps?q=" + lat + "," + lon + "\">Locate Me!</a>";
+                            finalLocString = "<a target='_blank' href=\"http://maps.google.com/maps?q=" + lat + "," + lon + "\">Locate Me!</a>";
                         }
                         dt.Rows.Add(name, desc, time, finalLocString);
                     }

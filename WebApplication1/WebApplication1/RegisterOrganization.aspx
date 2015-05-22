@@ -27,7 +27,7 @@
             ValidationExpression="([a-z]|[A-Z]|[@]|[.]|[0-9]|[ ]|[-]|[_])*"></asp:RegularExpressionValidator>
             <asp:RegularExpressionValidator ID="RegularExpressionValidator1" ResourceName="rgv"
             runat="server" ControlToValidate="newWebsite" ErrorMessage="Please enter valid webpage."
-            ValidationExpression="([a-z]|[A-Z]|[@]|[.]|[0-9]|[ ]|[-]|[_])*"></asp:RegularExpressionValidator>
+            ValidationExpression="^((http|https)://)([\w-]+\.)+[\w]+(/[\w- ./?]*)?$"></asp:RegularExpressionValidator>
             <asp:RegularExpressionValidator ID="RegularExpressionValidator2" ResourceName="rgv"
             runat="server" ControlToValidate="newDescription" ErrorMessage="Please enter valid description."
             ValidationExpression="([a-z]|[A-Z]|[@]|[.]|[0-9]|[ ]|[-]|[_])*"></asp:RegularExpressionValidator>
