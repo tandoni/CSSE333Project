@@ -10,7 +10,7 @@ using System.Web.UI.WebControls;
 
 namespace WebApplication1
 {
-    public partial class EditEventOrgSelect : System.Web.UI.Page
+    public partial class EditOrgSelectOrg : System.Web.UI.Page
     {
         protected void Page_Load(object sender, EventArgs e)
         {
@@ -20,7 +20,6 @@ namespace WebApplication1
                 populateOrgs();
             }
         }
-
         public void populateOrgs()
         {
             String connString = ConfigurationManager.AppSettings["connectionInfo"];
@@ -46,8 +45,8 @@ namespace WebApplication1
 
         public void selectOrg(object sender, EventArgs e)
         {
-            Session["EventList"] = dropDownOrgs.SelectedItem.Text.ToString();
-            Response.Redirect("EditEventSelectEvent.aspx");
+            Session["EditOrganizationSelect"] = dropDownOrgs.SelectedItem.Text.ToString();
+            Response.Redirect("EditOrganization.aspx");
         }
     }
 }

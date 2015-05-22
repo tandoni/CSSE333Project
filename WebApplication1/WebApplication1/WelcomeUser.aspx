@@ -8,7 +8,7 @@
         <tr>
             <td><a href="RegisterOrganization.aspx">Register an Organization</a></td>
             <td><a href="EventPage.aspx">Add an Event</a></td>
-            <td><a href="EditOrganization.aspx">Edit an Organization</a></td>
+            <td><a href="EditOrgSelectOrg.aspx">Edit an Organization</a></td>
         </tr>
         <tr>
             <td><a href="EditEventOrgSelect.aspx">Edit an Event</a></td>

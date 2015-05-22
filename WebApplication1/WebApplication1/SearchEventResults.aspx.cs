@@ -37,14 +37,26 @@ namespace WebApplication1
                     dt.Columns.Add("Name", typeof(string));
                     dt.Columns.Add("Description", typeof(string));
                     dt.Columns.Add("Time", typeof(string));
+                    dt.Columns.Add("Locate me!", typeof(string));
 
                     while (reader.Read())
                     {
                         String name = reader["name"].ToString();
                         String desc = reader["description"].ToString();
                         String time = reader["time"].ToString();
+                        String lat = reader["latitude"].ToString();
+                        String lon = reader["longitude"].ToString();
+                        String finalLocString;
 
-                        dt.Rows.Add(name, desc, time);
+                        if (lat.Equals("") || lon.Equals(""))
+                        {
+                            finalLocString = "No Location Specified!";
+                        }
+                        else
+                        {
+                            finalLocString = "<a href=\"http://maps.google.com/maps?q=" + lat + "," + lon + "\">Locate Me!</a>";
+                        }
+                        dt.Rows.Add(name, desc, time, finalLocString);
                     }
 
                     gridView1.DataSource = dt;
