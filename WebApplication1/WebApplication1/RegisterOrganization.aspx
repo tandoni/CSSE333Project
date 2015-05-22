@@ -14,7 +14,7 @@
             <br />
             <label id="icon" for="name"><i class="icon-user"></i></label>
             <asp:TextBox runat="server" ID="newDescription" placeholder="Description" />
-            <label id="icon" for="name" style="margin-top: 10px"><i class="">Select your Headquarter location?</i></label>
+            <label id="icon" for="name" style="margin-top: 10px; margin-left:50px;"><i class="">Select your Headquarter location?</i></label>
             <asp:DropDownList ClientIDMode="Static" AppendDataBoundItems="true" ID="dropDownLocations" runat="server">
                 
             </asp:DropDownList>
