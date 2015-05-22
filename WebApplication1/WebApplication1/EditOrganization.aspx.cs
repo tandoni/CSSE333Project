@@ -96,7 +96,7 @@ namespace WebApplication1
                 cmd2.Parameters.Add("@description", SqlDbType.VarChar).Value = editedDesc;
                 cmd2.Parameters.Add("@lid", SqlDbType.Int).Value = Convert.ToInt32(dropDownLocations.SelectedItem.Value);
                 cmd2.Parameters.Add("@name2", SqlDbType.VarChar).Value = dropDownPartOfOther.SelectedItem.Value.ToString();
-                con.Open();
+                con.Open(); 
                 cmd2.ExecuteNonQuery();
                 con.Close();
 
